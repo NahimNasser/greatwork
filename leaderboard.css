@@ -44,17 +44,12 @@ body {
 
 .player:hover
 { 
-background-color: red;
+background-color: yellow;
 -webkit-transition: background-color 0.5s;
 -moz-transition: background-color 0.5s;
 -o-transition: background-color 0.5s;
 -ms-transition: background-color 0.5s;
 transition: background-color 0.5s;
-}
-
-.greatascii {
-    color:red;
-    width: 600px;
 }
 
 .player .name {

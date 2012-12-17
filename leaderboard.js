@@ -29,8 +29,38 @@ if (Meteor.isClient) {
   };
 
   Template.player.events({
-    'click': function () {
-      Session.set("selected_player", this._id);
+    'click': function (e) {
+    e.preventDefault();
+    var player = this;
+
+      var $great = $(e.target);
+      if (!$great.hasClass('player')) {
+          $great = $great.parents('.player');
+      }
+
+      var $all = $('.accomplishments');
+
+      if ($(e.target).hasClass('name') ||  $(e.target).hasClass('score') || $(e.target).hasClass('player') ){
+
+        $all.parents('.player').removeClass("selected");
+        if (window.UGH) {
+            window.UGH.find('.accomplishments').slideUp('fast', function() {
+                $great.find('.accomplishments').slideDown(500, function(){
+                  $great.addClass('selected');
+                  Session.set("selected_player", player._id);
+                  window.UGH = $great; // UGH == great, makes sense! great work yourself jeff
+                });
+            });
+        } else {
+                $great.find('.accomplishments').slideDown(500, function(){
+                  $great.addClass('selected');
+                  Session.set("selected_player", player._id);
+                  window.UGH = $great;
+                });
+        }
+
+      }
+      
     },
 
     'click input.inc': function () {
@@ -56,15 +86,15 @@ if (Meteor.isServer) {
 
 
   Meteor.startup(function () {
-    if (Players.find().count() === 0) {
-      var names = ["Ada Lovelace",
-      "Grace Hopper",
-      "Marie Curie",
-      "Carl Friedrich Gauss",
-      "Nikola Tesla",
-      "Claude Shannon"];
-      for (var i = 0; i < names.length; i++)
-        Players.insert({name: names[i], score: Math.floor(Math.random()*10)*5});
-    }
+    // if (Players.find().count() === 0) {
+    //   var names = ["Ada Lovelace",
+    //   "Grace Hopper",
+    //   "Marie Curie",
+    //   "Carl Friedrich Gauss",
+    //   "Nikola Tesla",
+    //   "Claude Shannon"];
+    //   for (var i = 0; i < names.length; i++)
+    //     Players.insert({name: names[i], score: Math.floor(Math.random()*10)*5});
+    // }
   });
 }
