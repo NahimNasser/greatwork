@@ -3,7 +3,7 @@
 </head>
 
 <body>
-  <div id="outer">
+  <div id="interface">
       {{loginButtons}}
 <!--       <p class='greatascii'>
 +====+===============================
@@ -23,7 +23,9 @@
 ===============ZOOOOZZZZZZOZ$ZNO8DDD=====
     </p> -->
     <h1>The Wall Of Great Works</h1>
-    <h3>Click on an individual to give them great work</h3>
+    <!-- 
+      <h3>Click on an individual to give them great work</h3> 
+    -->
     {{> leaderboard}}
   </div>
 </body>
@@ -38,30 +40,39 @@
 
 <template name="player">
   <div class="player {{selected}}">
+    <figure class="picture">
     {{#if facebook_id}}
-    <span class="picture"><img src='https://graph.facebook.com/{{ facebook_id }}/picture'></img></span>
+      <img src='https://graph.facebook.com/{{ facebook_id }}/picture' width="70" height="70" />
+      {{else}}
+      <img src="http://placehold.it/70x70" />
     {{/if}}
-    <span class="name">{{name}}</span>
-    <span class="score">{{score}}</span>
+    </figure>
+    <div class="player_details">
+      <div class="name_score">
+        <span class="name">{{name}}</span>
+        <span class="score">{{score}}</span>
+      </div> <!-- .name_score -->
+
       <div class="accomplishments {{selectedaccomplishment}}">
-      {{#if selected_great_works }}
-      <h4>Accomplishments</h4>
-      {{# each selected_great_works}}
-        {{> greatwork}}
-      {{/each}}
-      {{/if}}
-      {{# if currentUser}}
-  <div class="details">
-    <input type="text" class="greatMessage" placeholder="Enter your great work comment here" />
-    <br />
-    <input type="button" class="inc btn btn-primary" value="Give Great Work" />
-    <input type="button" class="dec btn btn-danger" value="Reduce Great Work" />
-  </div>
-  {{else}}
-  <strong>Please log in to greatworks with facebook. (Top of the page)</strong>
-  {{/if}}
-    </div>
-  </div>
+        {{#if selected_great_works }}
+        <h4>Accomplishments</h4>
+        {{# each selected_great_works}}
+          {{> greatwork}}
+        {{/each}}
+        {{/if}}
+      </div> <!-- .accomplishments -->
+    
+
+      <div class="leave_comment">
+        <input type="text" class="greatMessage" placeholder="Enter your great work comment here" />
+        <br />
+        <input type="button" class="inc btn btn-primary" value="Give Great Work" />
+        <input type="button" class="dec btn btn-danger" value="Reduce Great Work" />
+      </div> <!-- .leave_comment -->
+
+    </div> <!-- .player_details -->
+  
+  </div> <!-- .player -->
 </template>
 
 <template name="greatwork">
