@@ -8,7 +8,7 @@ $(document).ready(function() {
 
 	// SET YOUR INFORMATION HERE:
 	var config = {
-		path :	'assets/img/greatwork.jpg',		// e.g. images/onion.jpg
+		path :	'/greatwork.jpg',		// e.g. images/onion.jpg
 		width :	'860',		// e.g. 960
 		height :'968'		// e.g. 1000
 	};

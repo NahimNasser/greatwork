@@ -9,10 +9,52 @@ body {
     user-select: none;
 }
 
-#outer {
-    width: 600px;
-    margin: 0 auto;    
-    padding-top: 20px;
+#interface
+{
+    width: 95%;
+    max-width: 775px;
+    margin: auto;
+}
+
+h1 
+{
+    color: #124a6b;
+    font-size: 48px;
+    text-align: center;
+}
+
+.leaderboard
+{
+
+}
+
+.player
+{
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.player figure.picture
+{
+    border: 1px solid #c9c9c9;
+    padding: 3px;
+    width: 70px;
+    height: 70px;
+    float: left;
+    margin: 0;
+}
+
+.player_details
+{
+    float: left;
+    margin: 0 0 0 30px;
+}
+
+.name_score
+{
+    background: gray;
+    color: white;
+    height: 80px;
 }
 
 .overflowbox{
@@ -34,12 +76,6 @@ body {
 #optionspanel
 {
     width:300px;
-}
-
-.player {
-    cursor: pointer;
-    padding: 5px;
-    border-top: 1px solid;
 }
 
 .player:hover
