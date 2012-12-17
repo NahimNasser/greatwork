@@ -1,0 +1,137 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    padding: 0;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+#outer {
+    width: 600px;
+    margin: 0 auto;    
+    padding-top: 20px;
+}
+
+.overflowbox{
+    overflow-y:scroll; 
+    margin:0 30px; 
+    position: relative;
+}
+
+.chat{
+        height: 150px; 
+        border: 1px solid;
+        margin-bottom: 40px;
+}
+
+.accomplishments {
+    display: none;
+}
+
+#optionspanel
+{
+    width:300px;
+}
+
+.player {
+    cursor: pointer;
+    padding: 5px;
+    border-top: 1px solid;
+}
+
+.player:hover
+{ 
+background-color: red;
+-webkit-transition: background-color 0.5s;
+-moz-transition: background-color 0.5s;
+-o-transition: background-color 0.5s;
+-ms-transition: background-color 0.5s;
+transition: background-color 0.5s;
+}
+
+.greatascii {
+    color:red;
+    width: 600px;
+}
+
+.player .name {
+    display: inline-block;
+    width: 300px;
+    font-size: 1.75em;
+}
+
+.player .score {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    font-size: 2em;
+    font-weight: bold;
+    color: #777;
+}
+
+.player.selected {
+    background-color: yellow;
+}
+
+.player.selected .accomplishments{
+    display: block;
+}
+
+.player.selected .score {
+    color: black;
+}
+
+.details, .none {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.none {
+    color: #777;
+}
+
+.inc, .dec{
+  cursor: pointer;
+}
+
+
+.greatMessage{
+    width:300px;
+}
+
+.target {
+    padding-bottom: 15px;
+}
+
+.details .fade.in {
+    -webkit-animation-name: fadeIn;
+}
+
+.details .fade.out {
+    -webkit-animation-name: fadeOut;
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(startYposition);
+    } 
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(endYposition);
+    }
+}
+
+@-webkit-keyframes fadeOut {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateY(startYposition);
+    } 
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(endYposition);
+    }
+}

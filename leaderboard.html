@@ -1,0 +1,76 @@
+<head>
+  <title>Leaderboard</title>
+</head>
+
+<body>
+  <div id="outer">
+      {{loginButtons}}
+<!--       <p class='greatascii'>
++====+===============================
+====+================================
+==OO=O===============================
+===8ZZZ==============+ZO8==============
+=====8O8============ZO$OO=============
+======DOOZ7=========$ZOOZZ=============
+=======888OZ$========D888==============
+========I888OZZZ77II~7ZDZO$7+~~~~=~=========
+==========7D8D888$77$ZZ$$$$$$7$$==========
+========~~=~=8DD8Z$778$$7D7$Z$ZO8O~=======
+==============$8O$$777$$7ZZ$O88OZ7=======
+==============Z8Z$877$$$$ZZZ8DDZ$OZ=======
+==============Z8OZZZ$$$8$$O$Z7~=DDZ88-====
+==============ZZOZDZ$$ZZZOZZZ=$Z$OO8======
+===============ZOOOOZZZZZZOZ$ZNO8DDD=====
+    </p>
+ -->    <h1>The Wall Of Great Works</h1>
+    <h3>Click on an individual to give them great work</h3>
+    {{> leaderboard}}
+  </div>
+</body>
+
+<template name="leaderboard">
+  <div class="leaderboard">
+    {{#each players}}
+      {{> player}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="player">
+  <div class="player {{selected}}">
+    {{#if facebook_id}}
+    <span class="picture"><img src='https://graph.facebook.com/{{ facebook_id }}/picture'></img></span>
+    {{/if}}
+    <span class="name">{{name}}</span>
+    <span class="score">{{score}}</span>
+      <div class="accomplishments {{selectedaccomplishment}}">
+      {{#if selected_great_works }}
+      <h4>Accomplishments</h4>
+      {{# each selected_great_works}}
+        {{> greatwork}}
+      {{/each}}
+      {{/if}}
+  <div class="details">
+    <input type="text" class="greatMessage" placeholder="Enter your great work comment here" />
+    <br />
+    <input type="button" class="inc btn btn-primary" value="Give Great Work" />
+    <input type="button" class="dec btn btn-danger" value="Reduce Great Work" />
+  </div>
+    </div>
+  </div>
+</template>
+
+<template name="greatwork">
+  <p>From: {{name}}  --- Message: {{message}} <strong> --- 5 Points</strong></p>
+</template>
+
+<template name="messages">
+  <div class='overflowbox chat'>
+    <p>
+        {{#each messages}}
+            <br />
+            <strong>{{name}}</strong>- {{message}} - {{formatted_time time}}
+        {{/each}}
+    </p>
+  </div>
+</template>
