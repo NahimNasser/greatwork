@@ -29,7 +29,7 @@ $(document).ready(function() {
 			top: "0",
 			zIndex: '9999',
 			// IF THERE IS A SCROLLBAR, WE NEED TO OFFSET THE LEFT POSITION OF THE COMP TO ACCOMMODATE IT (8PX HERE)
-			left: (((windowWidth - compWidth)/2)-0)+"px"
+			left: (((windowWidth - compWidth)/2)-50)+"px"
 		});
 	}
 	else{
