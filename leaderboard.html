@@ -50,12 +50,16 @@
         {{> greatwork}}
       {{/each}}
       {{/if}}
+      {{# if currentUser}}
   <div class="details">
     <input type="text" class="greatMessage" placeholder="Enter your great work comment here" />
     <br />
     <input type="button" class="inc btn btn-primary" value="Give Great Work" />
     <input type="button" class="dec btn btn-danger" value="Reduce Great Work" />
   </div>
+  {{else}}
+  <strong>Please log in to greatworks with facebook. (Top of the page)</strong>
+  {{/if}}
     </div>
   </div>
 </template>
