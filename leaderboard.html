@@ -57,13 +57,13 @@
           <span class="name">{{name}}</span>
           <span class="score">{{score}}</span>
         </div>
-        <div id="give_take" class="buttons">
+        <div class="give_take" class="buttons">
           <a href="#" class="btn give">Give great work</a>
           <a href="#" class="btn take">Take great work</a>
         </div>
       </div> <!-- .name_score -->
       
-      <div id="leave_comment" class="leave_comment">
+      <div class="leave_comment">
         <div class="input_form">
           <form>
             <input type="text" class="greatMessage" placeholder="Enter your great work comment here" />
@@ -78,6 +78,17 @@
       <div class="accomplishments {{selectedaccomplishment}}">
         {{#if selected_great_works }}
         <h4>Accomplishments</h4>
+        <div class="table_head">
+          <div class="accomp heading from">
+            <span>From</span>
+          </div>
+          <div class="accomp heading message">
+            <span>Message</span>
+          </div>
+          <div class="accomp heading points">
+            <span>Points</span>
+          </div>
+        </div>
         {{# each selected_great_works}}
           {{> greatwork}}
         {{/each}}
@@ -93,20 +104,16 @@
 </template>
 
 <template name="greatwork">
-  <div class="table_head">
-    <div class="accomp heading from">
-      <span>From</span>
-    </div>
-    <div class="accomp heading message">
-      <span>Message</span>
-    </div>
-    <div class="accomp heading points">
-      <span>Points</span>
-    </div>
-  </div>
   <div class="accomplishment_text">
     <div class="accomp details from">
-      <span>
+      <figure>
+        {{#if from_facebook_id}}
+          <img src='https://graph.facebook.com/{{ from_facebook_id }}/picture' width="28" height="28" />
+          {{else}}
+          <img src="http://placehold.it/28x28" />
+        {{/if}}
+      </figure>
+      <span>  
         {{name}}
       </span>
     </div> <!-- .accomp -->
@@ -120,7 +127,7 @@
     </div> <!-- .accomp -->
     <div class="accomp details points">
       <span>
-        5 Points
+        5
       </span>
     </div> <!-- .accomp -->
 
