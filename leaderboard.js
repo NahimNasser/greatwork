@@ -25,7 +25,7 @@ if (Meteor.isClient) {
   };
 
   Template.player.selected_great_works = function(){
-    return Messages.find({victim: this.name});
+    return Messages.find({victim: this.name}, {sort: {time: -1}});
   };
 
   Template.player.events({
