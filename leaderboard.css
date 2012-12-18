@@ -29,7 +29,7 @@ body {
     color: white;
     padding: 5px 10px 5px 30px;
     float: left;
-    margin: 5px;
+    margin: 4px;
 }
 
 #give_take .btn
@@ -37,16 +37,36 @@ body {
     font-size: 12px;
     width: 87px;
     text-align: right;
+    border-radius: 3px;
+    position: relative;
+    top: 8px;
+    left: 18px;
+    text-transform: lowercase;
 }
 
-.btn.give
+.btn.give,
+.inc
 {
     background: #0e7866;
+    border: none;
 }
 
-.btn.take
+.btn.take,
+.dec
 {
     background: #9e0b0f;
+    border: none;
+}
+
+.btn.inc,
+.btn.dec{
+    height: 70px;
+    line-height: 70px;
+    width: 160px;
+    text-align: center;
+    padding: 0;
+    font-size: 18px;
+    margin: 5px;
 }
 
 h1 
@@ -60,7 +80,8 @@ h1
 .leaderboard
 {
     position: relative;
-    top: 0;
+    top: 27px;
+    left: -60px;
 }
 
 #names_filter
@@ -84,7 +105,7 @@ h1
 
 .player .picture
 {   
-    width: 15%;
+    width: 14%;
     height: 80px;
     min-width: 90px;
     position: relative;
@@ -99,19 +120,25 @@ h1
     width: 70px;
     height: 70px;
     margin: 0;
+    border-radius: 40px;
+    overflow: hidden;
 }
 
-.player figure.picture img
+.player .picture figure img
 {
-    position: absolute;
-    top: 0;
-    left: 0;
+    border-radius: 40px;
+
 }
 
 .player_details
 {
-    width: 85%;
+    width: 86%;
     float: left;
+    box-sizing: border-box;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #f8f8f8;
 }
 
 .front_card
@@ -119,15 +146,57 @@ h1
 
 }
 
-.name_score
+.name_score,
+.input_form
 {
     width: 74%;
     float: left;
     height: 80px;
     background: url(/greatwork-bkgtexture.png);
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
-#give_take.buttons
+.input_form
+{
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #ebebeb 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#ebebeb)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#ebebeb 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#ebebeb 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#ebebeb 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ffffff 0%,#ebebeb 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ebebeb',GradientType=0 ); /* IE6-9 */
+}
+
+.name_score .name
+{
+    font-size: 28px;
+    margin: 21px 0 0 20px;
+    line-height: 28px;
+    display: block;
+    font-weight: bold;
+    float: left;
+}
+
+.name_score .score
+{
+    font-size: 50px;
+    margin: 12px 20px 0 0px;
+    line-height: 50px;
+    display: block;
+    font-weight: bold;
+    float: right;
+}
+
+
+
+#give_take.buttons,
+.go_buttons
 {
     width: 26%;
     float: left;
@@ -144,90 +213,85 @@ h1
 
 .front_card
 {
-    background: gray;
     color: white;
     height: 80px;
 }
 
 .leave_comment
 {
-    background: lightblue;
-}
-
-.overflowbox{
-    overflow-y:scroll; 
-    margin:0 30px; 
-    position: relative;
-}
-
-.chat{
-        height: 150px; 
-        border: 1px solid;
-        margin-bottom: 40px;
+    width: 100%;
+    overflow: hidden;
 }
 
 .accomplishments {
-    display: none;
+    width: 98%;
+    margin: 0 auto;
+    color: black;
 }
 
-#optionspanel
+.accomplishments h4 {
+    margin: 0 20px;
+    color: white;
+    background: #124a6b;
+    color: white;
+    line-height: 40px;
+    text-indent: 20px;
+}
+
+.accomplishments .table_head
 {
-    width:300px;
+    margin: 0 20px;
+    height: 24px;
+    background: #aaa;
+    clear: left;
+}
+
+.accomplishments .table_head > div,
+.accomplishments .accomplishment_text > div
+{
+    float: left;
+    width: 24%;
+}
+
+.accomplishments .table_head .heading.message,
+.accomplishments .accomplishment_text .details.message
+{
+    width: 52%;
+}
+
+.accomplishments .table_head .accomp span
+{
+    line-height: 24px;
+    font-size: 10px;
+    color: white;
+}
+
+.accomplishment_text
+{
+    width: 90%;
+    margin: auto;
 }
 
 .player:hover
 { 
-background-color: yellow;
--webkit-transition: background-color 0.5s;
--moz-transition: background-color 0.5s;
--o-transition: background-color 0.5s;
--ms-transition: background-color 0.5s;
-transition: background-color 0.5s;
+    /* this is how you do a css animation */
+    -webkit-transition: background-color 0.5s;
+    -moz-transition: background-color 0.5s;
+    -o-transition: background-color 0.5s;
+    -ms-transition: background-color 0.5s;
+    transition: background-color 0.5s;
 }
 
-.player .name {
-    display: inline-block;
-    width: 300px;
-    font-size: 1.75em;
-}
-
-.player .score {
-    display: inline-block;
-    width: 100px;
-    text-align: right;
-    font-size: 2em;
-    font-weight: bold;
-    color: #777;
-}
-
-.player.selected {
-    background-color: yellow;
-}
-
-.player.selected .accomplishments{
+ #leave_comment .greatMessage
+{
+    margin: 5px auto;
     display: block;
-}
-
-.player.selected .score {
-    color: black;
-}
-
-.details, .none {
-    font-weight: bold;
-    font-size: 2em;
-}
-
-.none {
-    color: #777;
-}
-
-.inc, .dec{
-  cursor: pointer;
-}
-
-
-.greatMessage{
-    width:300px;
+    width: 90%;
+    height: 60px;
+    box-shadow: inset 0 3px 3px 0 rgba(0,0,0,.5);
+    font-size: 16px;
+    color: #dbdbdb;
+    border-radius: 0;
 }
 
 .target {

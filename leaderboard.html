@@ -63,11 +63,16 @@
         </div>
       </div> <!-- .name_score -->
       
-      <div class="leave_comment">
-        <input type="text" class="greatMessage" placeholder="Enter your great work comment here" />
-        <br />
-        <input type="button" class="inc btn btn-primary" value="Give Great Work" />
-        <input type="button" class="dec btn btn-danger" value="Reduce Great Work" />
+      <div id="leave_comment" class="leave_comment">
+        <div class="input_form">
+          <form>
+            <input type="text" class="greatMessage" placeholder="Enter your great work comment here" />
+          </form>
+        </div>
+        <div class="go_buttons">
+          <input type="button" class="inc btn btn-primary" value="give it!" />
+          <input type="button" class="dec btn btn-danger" value="take it!" />
+        </div> <!-- .leave_comment -->
       </div> <!-- .leave_comment -->
 
       <div class="accomplishments {{selectedaccomplishment}}">
@@ -88,7 +93,35 @@
 </template>
 
 <template name="greatwork">
-  <p>From: {{name}}  --- Message: {{message}} <strong> --- 5 Points</strong></p>
+  <div class="table_head">
+    <div class="accomp heading from">
+      <span>From</span>
+    </div>
+    <div class="accomp heading message">
+      <span>Message</span>
+    </div>
+    <div class="accomp heading points">
+      <span>Points</span>
+    </div>
+  </div>
+  <div class="accomplishment_text">
+    <div class="accomp details from">
+      <span>
+        {{name}}
+      </span>
+    </div> <!-- .accomp -->
+    <div class="accomp details message">
+      <span>
+        {{message}}
+      </span>
+    </div> <!-- .accomp -->
+    <div class="accomp details points">
+      <span>
+        5 Points
+      </span>
+    </div> <!-- .accomp -->
+
+  </div>
 </template>
 
 <template name="messages">
