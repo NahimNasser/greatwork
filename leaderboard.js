@@ -96,10 +96,6 @@ if (Meteor.isClient) {
 
     'click #showless': function (e) {
       Session.set('page_size', 3);
-    },
-
-    'change': function (){
-      console.log('jizz');
     }
   });
 }
