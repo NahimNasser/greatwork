@@ -326,8 +326,9 @@ h1
     margin: 0 0 0 20px;
 }
 
-.player:hover
+.name:hover
 { 
+    color: black;
     /* this is how you do a css animation */
     -webkit-transition: background-color 0.5s;
     -moz-transition: background-color 0.5s;
