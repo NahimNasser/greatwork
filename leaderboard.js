@@ -74,11 +74,21 @@ if (Meteor.isClient) {
       Session.set("selected_player", this._id);
       Players.update(Session.get("selected_player"), {$inc: {score: 5}});
       var victim = Players.findOne(Session.get("selected_player"));
-      Messages.insert({victim: victim.name, name: Meteor.user().profile.name, message: $('.player.selected .greatMessage').val() , time: Date.now()});
+      Messages.insert({victim: victim.name, name: Meteor.user().profile.name, message: $('.player.selected .greatMessage').val() , time: Date.now(), points: 5});
     },
 
-    'click input.dec': function () {
-      // Players.update(Session.get("selected_player"), {$inc: {score: -5}});
+    'click input.dec': function (e) {
+            var $great = $(e.target);
+      if (!$great.hasClass('player')) {
+          $great = $great.parents('.player');
+      }
+      var $all = $('.accomplishments');
+      $all.parents('.player').removeClass("selected");
+      $great.addClass('selected');
+      Session.set("selected_player", this._id);
+      Players.update(Session.get("selected_player"), {$inc: {score: -5}});
+      var victim = Players.findOne(Session.get("selected_player"));
+      Messages.insert({victim: victim.name, name: Meteor.user().profile.name, message: $('.player.selected .greatMessage').val()  , time: Date.now(), points: -5});
     }
   });
 }
