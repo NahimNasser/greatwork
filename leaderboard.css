@@ -94,6 +94,7 @@ h1
     box-shadow: inset 0 3px 3px 0 rgba(0,0,0,.5);
     font-size: 16px;
     color: #dbdbdb;
+    display: none;
 }
 
 .player
@@ -224,6 +225,7 @@ h1
 }
 
 .accomplishments {
+    display: none;
     width: 98%;
     margin: 0 auto;
     color: black;
@@ -353,6 +355,10 @@ h1
 
 .target {
     padding-bottom: 15px;
+}
+
+.player.selected .accomplishments{
+    display: block;
 }
 
 .details .fade.in {
