@@ -6,6 +6,7 @@ if (Meteor.isClient) {
   var d = new Date(object);
   return d.toString();
 });
+  Session.set('page_size', 3);
 
   Template.messages.messages = function() {
     return Messages.find({}, {sort: {time: -1}});
@@ -25,14 +26,14 @@ if (Meteor.isClient) {
   };
 
   Template.player.selected_great_works = function(){
-    return Messages.find({victim: this.name}, {sort: {time: -1}});
+    return Messages.find({victim: this.name}, {sort: {time: -1}}).fetch().slice(0,Session.get('page_size'));
   };
 
   Template.player.events({
     'click': function (e) {
     e.preventDefault();
     var player = this;
-
+      Session.set('page_size', 3);
       var $great = $(e.target);
       if (!$great.hasClass('player')) {
           $great = $great.parents('.player');
@@ -78,7 +79,7 @@ if (Meteor.isClient) {
     },
 
     'click input.dec': function (e) {
-            var $great = $(e.target);
+      var $great = $(e.target);
       if (!$great.hasClass('player')) {
           $great = $great.parents('.player');
       }
@@ -89,6 +90,10 @@ if (Meteor.isClient) {
       Players.update(Session.get("selected_player"), {$inc: {score: -5}});
       var victim = Players.findOne(Session.get("selected_player"));
       Messages.insert({victim: victim.name, name: Meteor.user().profile.name, message: $('.player.selected .greatMessage').val()  , time: Date.now(), points: -5});
+    },
+
+    'click #showmore': function (e) {
+      Session.set('page_size', 2 * Session.get('page_size'));
     }
   });
 }
