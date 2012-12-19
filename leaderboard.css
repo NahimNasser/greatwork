@@ -74,7 +74,8 @@ h1
     color: #124a6b;
     font-size: 46px;
     text-align: center;
-    margin: 40px 0 28px;
+    margin: 0;
+    padding: 0;
 }
 
 .leaderboard
@@ -145,6 +146,13 @@ h1
 .front_card
 {
 
+}
+
+.greatascii
+{
+    font-size: 7px;
+    white-space: pre;
+    text-align: center
 }
 
 .name_score,
