@@ -77,6 +77,10 @@ h1
     margin: 0;
     padding: 0;
 }
+.chat
+{
+    text-align: center;
+}
 
 .leaderboard
 {

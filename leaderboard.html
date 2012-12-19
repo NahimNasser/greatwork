@@ -29,6 +29,7 @@
     <!-- 
       <h3>Click on an individual to give them great work</h3> 
     -->
+    {{> messages}}
     {{> leaderboard}}
   </div>
 </body>
@@ -144,10 +145,15 @@
 <template name="messages">
   <div class='overflowbox chat'>
     <p>
+      ====RECENT GREATNESS====
+      <br />
         {{#each messages}}
+            <strong>{{name}}</strong> Just Great Worked <strong>{{victim}}</strong>
             <br />
-            <strong>{{name}}</strong>- {{message}} - {{formatted_time time}}
+            "{{message}}"
         {{/each}}
+      <br />
+      ====================
     </p>
   </div>
 </template>
