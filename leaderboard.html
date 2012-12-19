@@ -127,7 +127,11 @@
     </div> <!-- .accomp -->
     <div class="accomp details points">
       <span>
-        {{points}}
+        {{# if points}}
+          {{points}}
+        {{else}}
+          5
+        {{/if}}
       </span>
     </div> <!-- .accomp -->
 
