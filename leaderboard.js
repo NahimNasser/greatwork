@@ -33,7 +33,6 @@ if (Meteor.isClient) {
     'click': function (e) {
     e.preventDefault();
     var player = this;
-      Session.set('page_size', 3);
       var $great = $(e.target);
       if (!$great.hasClass('player')) {
           $great = $great.parents('.player');
@@ -42,7 +41,6 @@ if (Meteor.isClient) {
       var $all = $('.accomplishments');
 
       if ($(e.target).hasClass('name') ||  $(e.target).hasClass('score') || $(e.target).hasClass('player') ){
-
         $all.parents('.player').removeClass("selected");
         if (window.UGH) {
             window.UGH.find('.accomplishments').slideUp('fast', function() {
@@ -94,6 +92,14 @@ if (Meteor.isClient) {
 
     'click #showmore': function (e) {
       Session.set('page_size', 2 * Session.get('page_size'));
+    },
+
+    'click #showless': function (e) {
+      Session.set('page_size', 3);
+    },
+
+    'change': function (){
+      console.log('jizz');
     }
   });
 }
