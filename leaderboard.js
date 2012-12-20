@@ -16,19 +16,14 @@ if (Meteor.isClient) {
   };
 
   Template.player.rendered = function() {
-          console.log('jizz');
           var $item = $(this.find('.player .score'));
           // Meteor.defer(function() {
+          console.log($item);
           $item.addClass('animated flip');
   };
 
   Template.leaderboard.players = function () {
     return Players.find({}, {sort: {score: -1, name: 1}});
-  };
-
-  Template.leaderboard.selected_name = function () {
-    var player = Players.findOne(Session.get("selected_player"));
-    return player && player.name;
   };
 
   Template.player.selected = function () {
@@ -78,9 +73,8 @@ if (Meteor.isClient) {
       if (!$great.hasClass('player')) {
           $great = $great.parents('.player');
       }
-      Session.set("selected_player", this._id);
-      Players.update(Session.get("selected_player"), {$inc: {score: 5}});
-      var victim = Players.findOne(Session.get("selected_player"));
+      Players.update(this._id, {$inc: {score: 5}});
+      var victim = Players.findOne(this._id);
       Messages.insert({victim: victim.name, name: Meteor.user().profile.name, message: $great.find('.greatMessage').val(), time: Date.now(), points: 5});
     },
 
@@ -89,9 +83,8 @@ if (Meteor.isClient) {
       if (!$great.hasClass('player')) {
           $great = $great.parents('.player');
       }
-      Session.set("selected_player", this._id);
-      Players.update(Session.get("selected_player"), {$inc: {score: -5}});
-      var victim = Players.findOne(Session.get("selected_player"));
+      Players.update(this._id, {$inc: {score: -5}});
+      var victim = Players.findOne(this._id);
       Messages.insert({victim: victim.name, name: Meteor.user().profile.name, message: $great.find('.greatMessage').val(), time: Date.now(), points: -5});
     },
 
