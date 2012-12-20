@@ -12,8 +12,8 @@ Players.allow({
 });
 
 Messages.allow({
-    insert: function (victim){
-        if (Meteor.user().name === victim.name) {return false;}
-        return true;
+    insert: function (userId, doc){
+        if (doc.name === doc.victim) {return false;}
+        else { return true;}
     }
 });
