@@ -1,7 +1,10 @@
 // Set up a collection to contain player information. On the server,
 // it is backed by a MongoDB collection named "players".
+Players = new Meteor.Collection("players");
+Messages = new Meteor.Collection('messages');
 
 if (Meteor.isClient) {
+
   Handlebars.registerHelper('formatted_time', function(object) {
   var d = new Date(object);
   return d.toString();
@@ -10,6 +13,13 @@ if (Meteor.isClient) {
 
   Template.messages.messages = function() {
     return Messages.find({}, {sort: {time: -1}}).fetch().slice(0,1);
+  };
+
+  Template.player.rendered = function() {
+          console.log('jizz');
+          var $item = $(this.find('.player .score'));
+          // Meteor.defer(function() {
+          $item.addClass('animated flip');
   };
 
   Template.leaderboard.players = function () {
@@ -26,7 +36,7 @@ if (Meteor.isClient) {
   };
 
   Template.player.selected_great_works = function(){
-    return Messages.find({victim: this.name}, {sort: {time: -1}}).fetch().slice(0,Session.get('page_size'));
+    return Messages.find({victim: this.name}, {sort: {time: -1}}).fetch().slice(0, Session.get('page_size'));
   };
 
   Template.player.events({
@@ -47,7 +57,7 @@ if (Meteor.isClient) {
                 $great.find('.accomplishments').show(0, function(){
                   $great.addClass('selected');
                   Session.set("selected_player", player._id);
-                  window.UGH = $great; 
+                  window.UGH = $great;
                   // UGH == great, makes sense! great work yourself jeff
                 });
             });
@@ -64,17 +74,14 @@ if (Meteor.isClient) {
     },
 
     'click input.inc': function (e) {
-      var $great = $(e.target);
+      $great = $(e.target);
       if (!$great.hasClass('player')) {
           $great = $great.parents('.player');
       }
-      var $all = $('.accomplishments');
-      $all.parents('.player').removeClass("selected");
-      $great.addClass('selected');
       Session.set("selected_player", this._id);
       Players.update(Session.get("selected_player"), {$inc: {score: 5}});
       var victim = Players.findOne(Session.get("selected_player"));
-      Messages.insert({victim: victim.name, name: Meteor.user().profile.name, message: $('.player.selected .greatMessage').val() , time: Date.now(), points: 5});
+      Messages.insert({victim: victim.name, name: Meteor.user().profile.name, message: $great.find('.greatMessage').val(), time: Date.now(), points: 5});
     },
 
     'click input.dec': function (e) {
@@ -82,13 +89,10 @@ if (Meteor.isClient) {
       if (!$great.hasClass('player')) {
           $great = $great.parents('.player');
       }
-      var $all = $('.accomplishments');
-      $all.parents('.player').removeClass("selected");
-      $great.addClass('selected');
       Session.set("selected_player", this._id);
       Players.update(Session.get("selected_player"), {$inc: {score: -5}});
       var victim = Players.findOne(Session.get("selected_player"));
-      Messages.insert({victim: victim.name, name: Meteor.user().profile.name, message: $('.player.selected .greatMessage').val()  , time: Date.now(), points: -5});
+      Messages.insert({victim: victim.name, name: Meteor.user().profile.name, message: $great.find('.greatMessage').val(), time: Date.now(), points: -5});
     },
 
     'click #showmore': function (e) {

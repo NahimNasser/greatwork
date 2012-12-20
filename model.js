@@ -1,6 +1,3 @@
-Players = new Meteor.Collection("players");
-
-Messages = new Meteor.Collection('messages');
 
 Players.allow({
     insert: function (name, score){
@@ -11,6 +8,11 @@ Players.allow({
         if (Meteor.user().facebook_id === player.facebook_id) {return false;}
         else {return true;}
     });
+    }
+});
 
+Messages.allow({
+    insert: function (){
+        return true;
     }
 });
