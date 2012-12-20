@@ -13,6 +13,7 @@ Players.allow({
 
 Messages.allow({
     insert: function (){
+        if (Meteor.user().facebook_id === player.facebook_id) {return false;}
         return true;
     }
 });
