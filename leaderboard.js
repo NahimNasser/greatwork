@@ -43,15 +43,16 @@ if (Meteor.isClient) {
       if ($(e.target).hasClass('name') ||  $(e.target).hasClass('score') || $(e.target).hasClass('player') ){
         $all.parents('.player').removeClass("selected");
         if (window.UGH) {
-            window.UGH.find('.accomplishments').slideUp('fast', function() {
-                $great.find('.accomplishments').slideDown(500, function(){
+            window.UGH.find('.accomplishments').hide(0, function() {
+                $great.find('.accomplishments').show(0, function(){
                   $great.addClass('selected');
                   Session.set("selected_player", player._id);
-                  window.UGH = $great; // UGH == great, makes sense! great work yourself jeff
+                  window.UGH = $great; 
+                  // UGH == great, makes sense! great work yourself jeff
                 });
             });
         } else {
-                $great.find('.accomplishments').slideDown(500, function(){
+                $great.find('.accomplishments').slideDown(0, function(){
                   $great.addClass('selected');
                   Session.set("selected_player", player._id);
                   window.UGH = $great;
