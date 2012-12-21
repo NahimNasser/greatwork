@@ -16,10 +16,11 @@ if (Meteor.isClient) {
   };
 
   Template.player.rendered = function() {
-          var $item = $(this.find('.player .score'));
+          var $player = $(this.find('.player'));
+          var $score = $(this.find('.score'));
           // Meteor.defer(function() {
-          console.log($item);
-          $item.addClass('animated flip');
+          $score.addClass('animated flip');
+          $player.addClass('animated bounce');
   };
 
   Template.leaderboard.players = function () {
@@ -114,6 +115,8 @@ if (Meteor.isServer) {
           Players.insert({name: options.profile.name, score: 0, facebook_id:user.services.facebook.id});
         return user;
       });
+  Meteor.Router.add('/404', [404, "There's nothing here!"]);
+
   Meteor.startup(function () {
 
     // All values listed below are default

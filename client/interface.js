@@ -5,6 +5,7 @@ $(document).ready(function(){
 			display: 'none'
 		});
 		$thisComment = $(this).closest('.front_card').next();
+		$thisComment.addClass('animated bounceIn');
 		$thisComment.css({
 			display: 'block'
 		});
@@ -17,6 +18,7 @@ $(document).ready(function(){
 			display: 'none'
 		});
 		$thisComment = $(this).closest('.front_card').next();
+		$thisComment.addClass('animated bounceIn');
 		$thisComment.css({
 			display: 'block'
 		});

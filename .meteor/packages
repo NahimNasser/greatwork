@@ -9,3 +9,4 @@ accounts-ui
 accounts-facebook
 deps
 collection-api
+router
