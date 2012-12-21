@@ -71,7 +71,16 @@ GREAT WORK
 5. Go to localhost:3000 in your browser
 6. Great work
 
-=========NEW=============
+New
+--------------
 7. Install Meteorite by: ```sudo npm  install -g meteorite ```
 8. You will now run the server by typing ```mrt``` instead of meteor
 9. Great work
+
+
+API Access
+--------------
+greatwork.meteor.com/greatapi/players
+greatwork.meteor.com/greatapi/messages
+
+Implementation used: https://github.com/crazytoad/meteor-collectionapi
