@@ -34,10 +34,8 @@ if (Meteor.isClient) {
     return Messages.find({victim: this.name}, {sort: {time: -1}}).fetch().slice(0, Session.get('page_size'));
   };
 
-  Template.player.events({
-    'click': function (e) {
-    e.preventDefault();
-    var player = this;
+  Template.player.show_accomplishments = function (e) {
+      var player = this;
       var $great = $(e.target);
       if (!$great.hasClass('player')) {
           $great = $great.parents('.player');
@@ -45,7 +43,7 @@ if (Meteor.isClient) {
 
       var $all = $('.accomplishments');
 
-      if ($(e.target).hasClass('name') ||  $(e.target).hasClass('score') || $(e.target).hasClass('player') ){
+      if ($(e.target).hasClass('name') ||  $(e.target).hasClass('score') || $(e.target).hasClass('player') || $(e.target).hasClass('show_details')){
         $all.parents('.player').removeClass("selected");
         if (window.UGH) {
             window.UGH.find('.accomplishments').hide(0, function() {
@@ -65,7 +63,17 @@ if (Meteor.isClient) {
         }
 
       }
-      
+  };
+
+  Template.player.events({
+    'click': function (e) {
+      e.preventDefault();
+      Template.player.show_accomplishments(e);
+    },
+
+    'click .show_details': function (e){
+      e.preventDefault();
+      Template.player.show_accomplishments(e);
     },
 
     'click input.inc': function (e) {
