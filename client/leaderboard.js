@@ -1,7 +1,5 @@
 // Set up a collection to contain player information. On the server,
 // it is backed by a MongoDB collection named "players".
-Players = new Meteor.Collection("players");
-Messages = new Meteor.Collection('messages');
 if (Meteor.isClient) {
   Meteor.subscribe("players");
   Meteor.subscribe("messages");
@@ -45,12 +43,13 @@ if (Meteor.isClient) {
   };
 
   Template.player.show_accomplishments = function (e) {
+      e.preventDefault();
       var player = this;
       var $great = $(e.target);
       if (!$great.hasClass('player')) {
           $great = $great.parents('.player');
       }
-
+ 
       var $all = $('.accomplishments');
 
       if ($(e.target).hasClass('name') ||  $(e.target).hasClass('score') || $(e.target).hasClass('player') || $(e.target).hasClass('show_details')){

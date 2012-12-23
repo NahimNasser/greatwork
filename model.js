@@ -1,3 +1,5 @@
+Players = new Meteor.Collection("players");
+Messages = new Meteor.Collection('messages');
 
 Players.allow({
     insert: function (name, score){
