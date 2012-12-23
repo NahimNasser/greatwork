@@ -96,6 +96,8 @@ if (Meteor.isClient) {
         victim: this,
         message: $great.find('.greatMessage').val(),
         points: 5
+      }, function (error, result){
+        toastr.error(error.reason);
       });
 
     },
@@ -110,6 +112,8 @@ if (Meteor.isClient) {
         victim: this,
         message: $great.find('.greatMessage').val(),
         points: -5
+      }, function (error, result){
+        toastr.error(error.reason);
       });
     },
 
