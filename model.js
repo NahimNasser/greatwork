@@ -23,7 +23,7 @@ Meteor.methods({
         options = options || {};
         Players.update(options.victim._id, {$inc: {score: -5}});
         Messages.insert({victim: options.victim.name, name: options.name, message: options.message, time: Date.now(), points: options.points});
-        var to = Meteor.users.findOne({}, {"profile.name": options.victim.name}).profile.services.facebook.email;
+        var to = Meteor.users.findOne({"profile.name": options.victim.name}).profile.services.facebook.email;
         //To customize mail delievery,  use
         // process.env.MAIL_URL = smtp://USERNAME:PASSWORD@HOST:PORT/
         Email.send({

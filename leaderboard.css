@@ -166,11 +166,6 @@ h1
     border: 1px solid #f8f8f8;
 }
 
-.front_card
-{
-
-}
-
 .greatascii
 {
     font-size: 7px;
@@ -255,7 +250,22 @@ h1
 .front_card
 {
     color: white;
+    border-radius: 10px;
+    border: 1px solid lightgrey;
     height: 80px;
+    background-image: linear-gradient(bottom, rgb(245,245,245) 0%, rgb(255,255,255) 50%);
+    background-image: -o-linear-gradient(bottom, rgb(245,245,245) 0%, rgb(255,255,255) 50%);
+    background-image: -moz-linear-gradient(bottom, rgb(245,245,245) 0%, rgb(255,255,255) 50%);
+    background-image: -webkit-linear-gradient(bottom, rgb(245,245,245) 0%, rgb(255,255,255) 50%);
+    background-image: -ms-linear-gradient(bottom, rgb(245,245,245) 0%, rgb(255,255,255) 50%);
+
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, rgb(245,245,245)),
+        color-stop(0.5, rgb(255,255,255))
+    );
 }
 
 .leave_comment
@@ -297,7 +307,19 @@ h1
 
 .accomplishments .accomplishment_text
 {
-    background: #e7e7e7;
+    background-image: linear-gradient(bottom, rgb(231,231,231) 50%, rgb(227,223,227) 0%);
+    background-image: -o-linear-gradient(bottom, rgb(231,231,231) 50%, rgb(227,223,227) 0%);
+    background-image: -moz-linear-gradient(bottom, rgb(231,231,231) 50%, rgb(227,223,227) 0%);
+    background-image: -webkit-linear-gradient(bottom, rgb(231,231,231) 50%, rgb(227,223,227) 0%);
+    background-image: -ms-linear-gradient(bottom, rgb(231,231,231) 50%, rgb(227,223,227) 0%);
+
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.5, rgb(231,231,231)),
+        color-stop(0, rgb(227,223,227))
+    );
     overflow: hidden;
     margin: 0 20px;
     border-bottom: 1px solid #adadad;

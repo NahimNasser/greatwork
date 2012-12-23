@@ -36,6 +36,10 @@ if (Meteor.isClient) {
     return Messages.find({victim: this.name}, {sort: {time: -1}}).fetch().slice(0, Session.get('page_size'));
   };
 
+  Template.greatwork.facebook_id = function(){
+    return Meteor.users.findOne({"profile.name": this.name}).profile.services.facebook.id;
+  };
+
   Template.player.show_accomplishments = function (e) {
       var player = this;
       var $great = $(e.target);

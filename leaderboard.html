@@ -120,8 +120,8 @@
   <div class="accomplishment_text" id="{{_id}}">
     <div class="accomp details from">
       <figure>
-        {{#if from_facebook_id}}
-          <img src='https://graph.facebook.com/{{ from_facebook_id }}/picture' width="28" height="28" />
+        {{#if facebook_id}}
+          <img src='https://graph.facebook.com/{{facebook_id }}/picture' width="28" height="28" />
           {{else}}
           <img src="http://placehold.it/28x28" />
         {{/if}}
