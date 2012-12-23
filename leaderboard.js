@@ -19,6 +19,7 @@ if (Meteor.isClient) {
           var $player = $(this.find('.player'));
           var $score = $(this.find('.score'));
           // Meteor.defer(function() {
+          // $.scrollTo($player, 800);
           $score.addClass('animated flip');
           $player.addClass('animated bounce');
   };
@@ -78,13 +79,18 @@ if (Meteor.isClient) {
     },
 
     'click input.inc': function (e) {
-      $great = $(e.target);
+      var $great = $(e.target);
       if (!$great.hasClass('player')) {
           $great = $great.parents('.player');
       }
-      Players.update(this._id, {$inc: {score: 5}});
-      var victim = Players.findOne(this._id);
-      Messages.insert({victim: victim.name, name: Meteor.user().profile.name, message: $great.find('.greatMessage').val(), time: Date.now(), points: 5});
+
+      Meteor.call('giveTakeGreatWork', {
+        victim: this,
+        name: Meteor.user().profile.name,
+        message: $great.find('.greatMessage').val(),
+        points: 5
+      });
+
     },
 
     'click input.dec': function (e) {
@@ -92,9 +98,13 @@ if (Meteor.isClient) {
       if (!$great.hasClass('player')) {
           $great = $great.parents('.player');
       }
-      Players.update(this._id, {$inc: {score: -5}});
-      var victim = Players.findOne(this._id);
-      Messages.insert({victim: victim.name, name: Meteor.user().profile.name, message: $great.find('.greatMessage').val(), time: Date.now(), points: -5});
+
+      Meteor.call('giveTakeGreatWork', {
+        victim: this,
+        name: Meteor.user().profile.name,
+        message: $great.find('.greatMessage').val(),
+        points: -5
+      });
     },
 
     'click #showmore': function (e) {
@@ -111,8 +121,11 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
   Accounts.onCreateUser(function(options, user) {
           user.profile = options.profile;
-          user.facebook_id = user.services.facebook.id;
-          Players.insert({name: options.profile.name, score: 0, facebook_id:user.services.facebook.id});
+          user.profile.services = user.services;
+          //Additional facebook data whoring:
+          var result = Meteor.http.get("https://graph.facebook.com/me", {params: {access_token: user.services.facebook.accessToken}});
+          user.profile.services.facebook.meData = result.data;
+          Players.insert({name: options.profile.name, score: 0, facebook_id:user.services.facebook.id}); //Eventually, this needs to be moved to a post-creation hook
         return user;
       });
   Meteor.Router.add('/404', [404, "There's nothing here!"]);
