@@ -564,4 +564,6 @@ h1
         border-radius: 10px;
     }
 
-}
+    .message_text{
+        width: 100%;
+    }

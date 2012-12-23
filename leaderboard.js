@@ -2,13 +2,21 @@
 // it is backed by a MongoDB collection named "players".
 Players = new Meteor.Collection("players");
 Messages = new Meteor.Collection('messages');
-
 if (Meteor.isClient) {
+  Meteor.subscribe("players");
+  Meteor.subscribe("messages");
+
+  Accounts.ui.config({
+    requestPermissions: {
+      facebook: ['email', 'publish_actions', 'publish_stream', 'user_online_presence', 'read_friendlists']
+    }
+  });
 
   Handlebars.registerHelper('formatted_time', function(object) {
-  var d = new Date(object);
-  return d.toString();
-});
+    var d = moment(object);
+    return d.fromNow();
+  });
+
   Session.set('page_size', 3);
 
   Template.messages.messages = function() {
@@ -34,10 +42,6 @@ if (Meteor.isClient) {
 
   Template.player.selected_great_works = function(){
     return Messages.find({victim: this.name}, {sort: {time: -1}}).fetch().slice(0, Session.get('page_size'));
-  };
-
-  Template.greatwork.facebook_id = function(){
-    return Meteor.users.findOne({"profile.name": this.name}).profile.services.facebook.id;
   };
 
   Template.player.show_accomplishments = function (e) {
@@ -123,6 +127,14 @@ if (Meteor.isClient) {
 
 // On server startup, create some players if the database is empty.
 if (Meteor.isServer) {
+  Meteor.publish("players", function (){
+    return Players.find({});
+  });
+
+  Meteor.publish("messages", function (){
+    return Messages.find({});
+  });
+
   Accounts.onCreateUser(function(options, user) {
           user.profile = options.profile;
           user.profile.services = user.services;
