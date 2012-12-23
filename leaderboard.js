@@ -94,7 +94,6 @@ if (Meteor.isClient) {
 
       Meteor.call('giveTakeGreatWork', {
         victim: this,
-        name: Meteor.user().profile.name,
         message: $great.find('.greatMessage').val(),
         points: 5
       });
@@ -109,7 +108,6 @@ if (Meteor.isClient) {
 
       Meteor.call('giveTakeGreatWork', {
         victim: this,
-        name: Meteor.user().profile.name,
         message: $great.find('.greatMessage').val(),
         points: -5
       });
