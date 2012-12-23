@@ -25,7 +25,7 @@ Meteor.methods({
                 throw new Meteor.Error(401, "You must login to use the application");
         }
         if (Meteor.user().profile.name == options.victim.name){
-                  throw new Meteor.Error(400, "You're a loser for trying to greatwork yourself");
+                  throw new Meteor.Error(400, "Seriously, give yourself 5 points for great working yourself.");
         }
         Players.update(options.victim._id, {$inc: {score: -5}});
         Messages.insert({victim: options.victim.name, facebook_id: Meteor.user().profile.services.facebook.id, name: Meteor.user().profile.name, message: options.message, time: Date.now(), points: options.points});
