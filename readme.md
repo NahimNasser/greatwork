@@ -69,10 +69,9 @@ GREAT WORK
 3. Navigate to root directory of the project
 4. type ```meteor```
 5. Go to localhost:3000 in your browser
-6. Great work
-7. Install Meteorite by: ```sudo npm  install -g meteorite ```
-8. You will now run the server by typing ```mrt``` instead of meteor
-9. Great work
+6. Install Meteorite by: ```sudo npm  install -g meteorite ```
+7. You will now run the server by typing ```mrt``` instead of meteor
+8. Great work
 
 Styling Changes
 --------------
