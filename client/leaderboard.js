@@ -80,6 +80,32 @@ if (Meteor.isClient) {
       Template.player.show_accomplishments(e);
     },
 
+    'click .give': function(e){
+        e.preventDefault();
+        $(e.target).closest('.front_card').css({
+          display: 'none'
+        });
+        $thisComment = $(e.target).closest('.front_card').next();
+        $thisComment.addClass('animated bounceIn');
+        $thisComment.css({
+          display: 'block'
+        });
+        $('.dec',$thisComment).hide();
+    },
+
+    'click .take': function(e){
+      e.preventDefault();
+      $(e.target).closest('.front_card').css({
+        display: 'none'
+      });
+      $thisComment = $(e.target).closest('.front_card').next();
+      $thisComment.addClass('animated bounceIn');
+      $thisComment.css({
+        display: 'block'
+      });
+      $('.inc',$thisComment).hide();
+    },
+
     'click .show_details': function (e){
       e.preventDefault();
       Template.player.show_accomplishments(e);
