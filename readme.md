@@ -70,13 +70,17 @@ GREAT WORK
 4. type ```meteor```
 5. Go to localhost:3000 in your browser
 6. Great work
-
-New
---------------
 7. Install Meteorite by: ```sudo npm  install -g meteorite ```
 8. You will now run the server by typing ```mrt``` instead of meteor
 9. Great work
 
+Styling Changes
+--------------
+This project has been converted to scss, and is now using compass to compile the project.
+1. Navigate to the /styling directory
+2. Run ```compass watch``` to recompile anytime your scss files change.
+4. screen.scss imports our partials _leaderboard.scss
+This is an ongoing process to further modularize our css
 
 API Access
 --------------
