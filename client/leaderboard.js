@@ -74,8 +74,15 @@ if (Meteor.isClient) {
       }
   };
 
+  Template.messages.events({
+    'click .fb_invite': function(e){
+      facebookinit();
+      sendRequestViaMultiFriendSelector();
+    }
+  });
+
   Template.player.events({
-    'click': function (e) {
+    'click': function(e) {
       e.preventDefault();
       Template.player.show_accomplishments(e);
     },
