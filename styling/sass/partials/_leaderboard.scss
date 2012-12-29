@@ -7,7 +7,7 @@
 
 .currentplayer {
   width: 300px;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .current-score, .current-points{
@@ -21,7 +21,7 @@
 }
 
 .current-picture, .current-player-score{
-  float: left;
+  float: right;
 }
 
 body {
@@ -81,14 +81,6 @@ body {
   box-sizing: border-box;
   @include border-radius(10px);
   padding: 2px;
-}
-
-.input_form {
-  height: 80px;
-  background: url(/greatwork-bkgtexture.png);
-  @include border-radius(10px);
-  width: 60%;
-  float: left;
 }
 
 .name_score {
@@ -253,7 +245,6 @@ body {
   .input_form {
     float: left;
     height: 80px;
-    background: url(/greatwork-bkgtexture.png);
     width: 74%;
     @include border-radius(10px);
   }
