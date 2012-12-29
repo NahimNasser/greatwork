@@ -21,6 +21,12 @@ if (Meteor.isClient) {
     return Messages.find({}, {sort: {time: -1}}).fetch().slice(0,1);
   };
 
+  Template.currentplayer.currentplayer = function(){
+    if (Meteor.user().profile) {
+      return Players.findOne({name: Meteor.user().profile.name});
+    }
+  };
+
   Template.player.rendered = function() {
           var $player = $(this.find('.player'));
           var $score = $(this.find('.score'));
@@ -97,20 +103,6 @@ if (Meteor.isClient) {
         $thisComment.css({
           display: 'block'
         });
-        $('.dec',$thisComment).hide();
-    },
-
-    'click .take': function(e){
-      e.preventDefault();
-      $(e.target).closest('.front_card').css({
-        display: 'none'
-      });
-      $thisComment = $(e.target).closest('.front_card').next();
-      $thisComment.addClass('animated bounceIn');
-      $thisComment.css({
-        display: 'block'
-      });
-      $('.inc',$thisComment).hide();
     },
 
     'click .show_details': function (e){
@@ -132,21 +124,6 @@ if (Meteor.isClient) {
         toastr.error(error.reason);
       });
 
-    },
-
-    'click input.dec': function (e) {
-      var $great = $(e.target);
-      if (!$great.hasClass('player')) {
-          $great = $great.parents('.player');
-      }
-
-      Meteor.call('giveTakeGreatWork', {
-        victim: this,
-        message: $great.find('.greatMessage').val(),
-        points: -5
-      }, function (error, result){
-        toastr.error(error.reason);
-      });
     },
 
     'click #showmore': function (e) {

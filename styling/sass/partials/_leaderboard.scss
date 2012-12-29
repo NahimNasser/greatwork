@@ -1,113 +1,54 @@
-#login-buttons {
+#login-buttons, .currentplayer {
   position: absolute;
   top: 0;
   right: 0;
+  display: block;
+}
+
+.currentplayer {
+  width: 300px;
+  margin-top: 20px;
+}
+
+.current-score, .current-points{
+  display:block;
+}
+
+.current-score {
+  color: red;
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.current-picture, .current-player-score{
+  float: left;
 }
 
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 200;
-  padding: 0;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  user-select: none;
 }
 
 #interface {
   width: 95%;
-  max-width: 775px;
+  max-width: 700px;
   margin: auto;
-}
-
-.btn {
-  display: block;
-  text-decoration: none;
-  color: white;
-  padding: 5px 10px 5px 30px;
-  float: left;
-  margin: 4px;
-}
-
-.give_take {
-  position: relative;
-  top: -160px;
-  width: 100%;
-  .btn {
-    font-size: 12px;
-    width: 87px;
-    text-align: right;
-    border-radius: 3px;
-    position: relative;
-    top: 8px;
-    left: 18px;
-    text-transform: lowercase;
-    height: 40px;
-    line-height: 40px;
-  }
-}
-
-.btn {
-  &.take {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: auto;
-  }
-  &.give {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #0e7866;
-    border: none;
-  }
 }
 
 .inc {
-  background: #0e7866;
-  border: none;
-}
-
-.btn.take, .dec {
-  background: #9e0b0f;
-  border: none;
-}
-
-.btn {
-  &.inc, &.dec {
     height: 70px;
+    border: 1px solid lightgrey;
+    @include background-image(linear-gradient(color-stops(rgb(255,255,255) 0%, rgb(245,245,245) 50%)));
+    @include border-radius(10px);
     line-height: 70px;
-    width: 160px;
+    width: 100px;
     text-align: center;
-    padding: 0;
     font-size: 18px;
     margin: 5px;
   }
-}
 
-h1 {
-  color: #124a6b;
-  font-size: 46px;
+.chat { 
   text-align: center;
-  margin: 0;
-  padding: 0;
-}
-
-.chat {
-  text-align: center;
-}
-
-#names_filter {
-  width: 420px;
-  display: block;
-  padding: 8px 20px 2px;
-  margin: auto;
-  border-radius: 20px;
-  box-shadow: inset 0 3px 3px 0 rgba(0, 0, 0, 0.5);
-  font-size: 16px;
-  color: #dbdbdb;
-  display: none;
 }
 
 .player {
@@ -115,20 +56,19 @@ h1 {
   width: 100%;
   position: relative;
   .picture {
-    width: 14%;
-    height: 80px;
-    min-width: 90px;
-    position: relative;
-    margin: 10px auto;
+      height: 80px;
+      position: relative;
+      float: left;
+      margin: 0;
   }
   figure {
-    border: 1px solid #c9c9c9;
-    padding: 3px;
-    width: 70px;
-    height: 70px;
-    margin: auto;
-    border-radius: 40px;
-    overflow: hidden;
+      border: 1px solid #c9c9c9;
+      padding: 3px;
+      width: 70px;
+      height: 70px;
+      margin: 0;
+      @include border-radius(40px);
+      overflow: hidden;
   }
   .picture figure img {
     border-radius: 40px;
@@ -136,23 +76,11 @@ h1 {
 }
 
 .player_details {
-  width: 100%;
+  width: 85%;
   float: left;
   box-sizing: border-box;
   @include border-radius(10px);
-  border: 1px solid #f8f8f8;
-}
-
-.greatascii {
-  font-size: 7px;
-  white-space: pre;
-  text-align: center;
-}
-
-.name_score {
-  height: 80px;
-  background: url(/greatwork-bkgtexture.png);
-  @include border-radius(10px);
+  padding: 2px;
 }
 
 .input_form {
@@ -161,11 +89,22 @@ h1 {
   @include border-radius(10px);
   width: 60%;
   float: left;
-  @include background-image(linear-gradient(white, #ebebeb));
 }
 
 .name_score {
+  float: left;
+  width: 74%;
+  height: 80px;
+  background: url(/greatwork-bkgtexture.png);
+  @include border-radius(10px);
+
   .name {
+
+    &:hover{
+      background-color: darkblue;
+      @include transition(background-color 0.5s);
+    }
+
     width: 300px;
     font-size: 28px;
     margin: 21px 0 0 20px;
@@ -183,6 +122,7 @@ h1 {
       text-decoration: none;
     }
   }
+
   .score {
     font-size: 50px;
     margin: 12px 20px 0 0px;
@@ -191,26 +131,13 @@ h1 {
     font-weight: bold;
     float: right;
   }
-}
 
-.give_take.buttons, .go_buttons {
-  width: 26%;
-  float: left;
-  height: 80px;
-  @include background-image(linear-gradient(white, #ebebeb));
 }
 
 .front_card {
+  border: none;
   color: white;
-  border-radius: 10px;
-  border: 1px solid lightgrey;
-  height: 80px;
-  @include background-image(linear-gradient(color-stops(rgb(255,255,255) 0%, rgb(245,245,245) 50%)));
-}
-
-.leave_comment {
-  width: 100%;
-  overflow: hidden;
+  line-height: 80px;
 }
 
 .accomplishments {
@@ -312,10 +239,6 @@ h1 {
   }
 }
 
-.target {
-  padding-bottom: 15px;
-}
-
 .player.selected .accomplishments {
   display: block;
 }
@@ -326,111 +249,33 @@ h1 {
     top: 27px;
     left: -60px;
   }
-  .details .fade {
-    &.in {
-      -webkit-animation-name: fadeIn;
-    }
-    &.out {
-      -webkit-animation-name: fadeOut;
-    }
-  }
-  @-webkit-keyframes fadeIn {
-    0% {
-      opacity: 0;
-      -webkit-transform: translateY(startYposition);
-    }
-    100% {
-      opacity: 1;
-      -webkit-transform: translateY(endYposition);
-    }
-  }
 
-  @-webkit-keyframes fadeOut {
-    0% {
-      opacity: 1;
-      -webkit-transform: translateY(startYposition);
-    }
-    100% {
-      opacity: 0;
-      -webkit-transform: translateY(endYposition);
-    }
-  }
-
-  .player {
-    .picture {
-      width: 14%;
-      height: 80px;
-      min-width: 90px;
-      position: relative;
-      float: left;
-      margin: 0;
-    }
-    figure {
-      border: 1px solid #c9c9c9;
-      padding: 3px;
-      width: 70px;
-      height: 70px;
-      margin: 0;
-      @include border-radius(40px);
-      overflow: hidden;
-    }
-  }
-  .name_score, .input_form {
-    width: 74%;
-  }
-  .player_details {
-    width: 86%;
-  }
-  .name_score, .input_form {
-    height: 80px;
-    @include border-radius(0px);
-  }
-  .name:hover {
-    /* this is how you do a css animation */
-    background-color: darkblue;
-    @include transition(background-color 0.5s);
-  }
-  .name_score {
-    float: left;
-    height: 80px;
-    background: url(/greatwork-bkgtexture.png);
-    @include border-radius(0px);
-    width: 74%;
-  }
   .input_form {
     float: left;
     height: 80px;
     background: url(/greatwork-bkgtexture.png);
-    @include border-radius(0px);
     width: 74%;
-    @include background-image(linear-gradient(white, #ebebeb));
-  }
-  .give_take {
-    top: 2px;
-    .btn {
-      font-size: 12px;
-      width: 87px;
-      text-align: right;
-      @include border-radius(3px);
-      position: relative;
-      top: 8px;
-      left: 18px;
-      text-transform: lowercase;
-      height: auto;
-      line-height: 14px;
-    }
+    @include border-radius(10px);
   }
   .btn {
-    &.take, &.give {
-      position: relative;
-      right: auto;
-      left: 18px;
+      &.give {
+      height: 40px;
+      padding: 20px;
+      border: 1px solid lightgrey;
+      -webkit-border-top-right-radius: 10px;
+      -webkit-border-bottom-right-radius: 10px;
+      -moz-border-radius-topright: 10px;
+      -moz-border-radius-bottomright: 10px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      @include background-image(linear-gradient(color-stops(rgb(255,255,255) 0%, rgb(245,245,245) 50%)));
+      &:hover{
+        @include background-image(linear-gradient(color-stops(rgb(245,245,245) 0%), rgb(255,255,255) 50%));
+      }
     }
-  }
-  .name_score {
-    @include border-radius(10px);
   }
   .message_text {
     width: 100%;
   }
 }
+

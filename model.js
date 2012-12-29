@@ -29,7 +29,7 @@ Meteor.methods({
         if (Meteor.user().profile.name == options.victim.name){
                   throw new Meteor.Error(400, "Seriously, give yourself 5 points for great working yourself.");
         }
-        Players.update(options.victim._id, {$inc: {score: -5}});
+        Players.update(options.victim._id, {$inc: {score: parseInt(options.points, 10) }});
         Messages.insert({victim: options.victim.name, facebook_id: Meteor.user().profile.services.facebook.id, name: Meteor.user().profile.name, message: options.message, time: Date.now(), points: options.points});
         var to = Meteor.users.findOne({"profile.name": options.victim.name}).profile.services.facebook.email;
         //To customize mail delievery,  use
