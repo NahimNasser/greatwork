@@ -15,7 +15,9 @@ body {
 
 .player {
   &:hover{
-    background-color: #C82506;
+    @include transition(all, 200ms);
+    padding: 10px;
+    border: 1px dashed lightgrey;
     @include border-radius(10px);
   }
   overflow: hidden;
