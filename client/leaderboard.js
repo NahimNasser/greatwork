@@ -44,7 +44,6 @@ if (Meteor.isClient) {
           var $score = $(this.find('.score'));
           var $name = $(this.find('.name'));
           if (this.data.name.length > 25){
-            console.log(this.data.name);
             $name.addClass('small-font');
           }
           // Meteor.defer(function() {
@@ -133,16 +132,23 @@ if (Meteor.isClient) {
       if (!$great.hasClass('player')) {
           $great = $great.parents('.player');
       }
+      var msg = $great.find('.greatMessage');
+      if (msg.val() === "") {
+        toastr.error("You must specify a great work message.");
+      }
+      else {
 
-      Meteor.call('giveTakeGreatWork', {
-        victim: this,
-        message: $great.find('.greatMessage').val(),
-        points: 5
-      }, function (error, result){
-        toastr.error(error.reason);
-      });
+        Meteor.call('giveTakeGreatWork', {
+          victim: this,
+          message: $great.find('.greatMessage').val(),
+          points: 5
+        }, function (error, result){
+          toastr.error(error.reason);
+        });
 
-      $great.find('.greatMessage').val('');
+        $great.find('.greatMessage').val('');
+
+      }
     },
 
     'click #showmore': function (e) {

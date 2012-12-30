@@ -15,11 +15,11 @@ body {
 
 .player {
   &:hover{
-    @include transition(all, 200ms);
     padding: 10px;
     border: 1px dashed lightgrey;
     @include border-radius(10px);
   }
+  @include transition(all, 200ms);
   overflow: hidden;
   width: 100%;
   position: relative;

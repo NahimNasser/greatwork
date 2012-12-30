@@ -141,16 +141,16 @@ body {
 
 /* line 16, ../../styling/sass/partials/_leaderboard.scss */
 .player {
+  -webkit-transition: all, 200ms;
+  -moz-transition: all, 200ms;
+  -o-transition: all, 200ms;
+  transition: all, 200ms;
   overflow: hidden;
   width: 100%;
   position: relative;
 }
 /* line 17, ../../styling/sass/partials/_leaderboard.scss */
 .player:hover {
-  -webkit-transition: all, 200ms;
-  -moz-transition: all, 200ms;
-  -o-transition: all, 200ms;
-  transition: all, 200ms;
   padding: 10px;
   border: 1px dashed lightgrey;
   -webkit-border-radius: 10px;
