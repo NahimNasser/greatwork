@@ -34,10 +34,21 @@
       </div>
 
     <div class="current-player-menu">
-      <!--<span class="current-name">{{currentplayer.name}}</span>-->
+      <nav> 
+        <ul>
+          <li>{{loginButtons}}
+            <ul>
+              <li><a class="fb_invite" href=#>+Invite Friends</a></li>
+              <!-- <li><a href=#>+Create Board </a></li>
+              <li><a href=#>+Find Board </a></li> -->
+            </ul>
+          </li>
+        </ul>
+      </nav>
     </div>
+    {{else}}
+        {{loginButtons}}
     {{/if}}
-    {{loginButtons}}
 </div>
 </template>
 
@@ -77,10 +88,10 @@
       </div> <!-- .name_score -->
       
       <div class="leave_comment">
-        <form>
-            <input name="greatMessage" maxlength="300" type="text" class="greatMessage" required="required" placeholder="Enter your great work comment here" />
-            <input type="submit" class="inc btn btn-primary" value="give" />
-        </form>
+          <form>
+              <input name="greatMessage" maxlength="300" type="text" class="greatMessage" required="required" placeholder="Enter your great work comment here" />
+              <input type="submit" class="inc btn btn-primary" value="give" />
+          </form>
       </div> <!-- .leave_comment -->
 
       <div class="accomplishments {{selectedaccomplishment}}">
@@ -150,7 +161,6 @@
 
 <template name="messages">
   <div class='overflowbox chat'>
-      <a class="fb_invite" href=#>NEW! Great Work your facebook friends!</a>
     <p>
       ====RECENT GREATNESS====
       <br />

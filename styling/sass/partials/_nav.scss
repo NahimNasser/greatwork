@@ -1,0 +1,35 @@
+nav {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    ul li {
+        list-style-type: none;
+    }
+    ul ul {
+        display: none;
+    }
+    ul li:hover > ul {
+        display: block;
+        color: white;
+    }
+
+    ul li ul{
+        @include background-image(linear-gradient(color-stops(lighten(#C82506, 10), #C82506)));
+    }
+
+    ul li ul li {
+        text-align: left;
+        a {
+            font-size: 20px;
+            text-decoration: none;
+            &:visited{
+                color:white;
+            }
+        }
+    }
+}
+
+.login-display-name::after {
+    content: "▼";
+    color: #C82506;
+}

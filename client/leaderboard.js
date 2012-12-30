@@ -92,7 +92,7 @@ if (Meteor.isClient) {
       }
   };
 
-  Template.messages.events({
+  Template.currentplayer.events({
     'click .fb_invite': function(e){
       facebookinit();
       sendRequestViaMultiFriendSelector();
