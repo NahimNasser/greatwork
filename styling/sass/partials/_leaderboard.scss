@@ -1,29 +1,3 @@
-#login-buttons, .currentplayer {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: block;
-}
-
-.currentplayer {
-  width: 300px;
-  margin-top: 40px;
-}
-
-.current-score, .current-points{
-  display:block;
-}
-
-.current-score {
-  color: red;
-  font-size: 40px;
-  font-weight: 400;
-}
-
-.current-picture, .current-player-score{
-  float: right;
-}
-
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 200;
@@ -34,18 +8,6 @@ body {
   max-width: 700px;
   margin: auto;
 }
-
-.inc {
-    height: 70px;
-    border: 1px solid lightgrey;
-    @include background-image(linear-gradient(color-stops(rgb(255,255,255) 0%, rgb(245,245,245) 50%)));
-    @include border-radius(10px);
-    line-height: 70px;
-    width: 100px;
-    text-align: center;
-    font-size: 18px;
-    margin: 5px;
-  }
 
 .chat { 
   text-align: center;
@@ -62,30 +24,21 @@ body {
       margin: 0;
   }
   figure {
-      border: 1px solid #c9c9c9;
-      padding: 3px;
-      width: 70px;
-      height: 70px;
-      margin: 0;
-      @include border-radius(40px);
-      overflow: hidden;
-  }
-  .picture figure img {
-    border-radius: 40px;
+    @include round-border-figure(70px);
   }
 }
 
 .player_details {
-  width: 85%;
+  width: 600px;
   float: left;
   box-sizing: border-box;
   @include border-radius(10px);
-  padding: 2px;
+  padding:3px;
 }
 
 .name_score {
   float: left;
-  width: 74%;
+  width: 85%;
   height: 80px;
   background: url(/greatwork-bkgtexture.png);
   @include border-radius(10px);
@@ -127,6 +80,7 @@ body {
 }
 
 .front_card {
+  width: 100%;
   border: none;
   color: white;
   line-height: 80px;
@@ -179,18 +133,7 @@ body {
 }
 
 .accomp.from figure {
-  border: 1px solid #c9c9c9;
-  padding: 3px;
-  width: 28px;
-  height: 28px;
-  margin: 0 10px;
-  @include border-radius(40px);
-  overflow: hidden;
-  background: white;
-  float: left;
-  img {
-    @include border-radius(40px);
-  }
+  @include round-border-figure(28px);
 }
 
 .details {
@@ -218,16 +161,35 @@ body {
 }
 
 .leave_comment {
+  width: 100%;
   display: none;
   .greatMessage {
-    margin: 5px auto;
-    display: block;
-    width: 90%;
-    height: 60px;
-    box-shadow: inset 0 3px 3px 0 rgba(0, 0, 0, 0.5);
+    text-indent: 20px;
+    float:left;
+    width: 85%;
+    padding: 0px;
+    padding-left: 3px;
+    box-sizing: border-box;
+    height: 80px;
     font-size: 16px;
     color: black;
-    @include border-radius(0px);
+    @include border-radius(10px);
+  }
+  .inc_div{
+    line-height: 80px;
+  }
+  .inc {
+    float:left;
+    height: 70px;
+    border: 1px solid lightgrey;
+    color: white;
+    @include background-image(linear-gradient(color-stops(lighten(#0E7866, 10), #0E7866)));
+    @include right-rounded(10px);
+    width: 75px;
+    text-align: center;
+    font-size: 18px;
+    margin: 0;
+    margin-top: 5px;
   }
 }
 
@@ -243,22 +205,17 @@ body {
   }
 
   .input_form {
+    display: block;
     float: left;
-    height: 80px;
-    width: 74%;
-    @include border-radius(10px);
+    height: 100%;
+    width: 100%;
   }
   .btn {
       &.give {
       height: 40px;
       padding: 20px;
       border: 1px solid lightgrey;
-      -webkit-border-top-right-radius: 10px;
-      -webkit-border-bottom-right-radius: 10px;
-      -moz-border-radius-topright: 10px;
-      -moz-border-radius-bottomright: 10px;
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
+      @include right-rounded(10px);
       @include background-image(linear-gradient(color-stops(rgb(255,255,255) 0%, rgb(245,245,245) 50%)));
       &:hover{
         @include background-image(linear-gradient(color-stops(rgb(245,245,245) 0%), rgb(255,255,255) 50%));
@@ -269,4 +226,3 @@ body {
     width: 100%;
   }
 }
-

@@ -1,0 +1,23 @@
+@mixin right-rounded($radius) {
+      -webkit-border-top-right-radius: $radius;
+      -webkit-border-bottom-right-radius: $radius;
+      -moz-border-radius-topright: $radius;
+      -moz-border-radius-bottomright: $radius;
+      border-top-right-radius: $radius;
+      border-bottom-right-radius: $radius;
+}
+
+@mixin round-border-figure($diameter) {
+    border: 1px solid #c9c9c9;
+    padding: 3px;
+    width: $diameter;
+    height: $diameter;
+    margin: 0 10px;
+    @include border-radius(40px);
+    overflow: hidden;
+    background: white;
+    float: left;
+    img {
+        @include border-radius(40px);
+    }
+}

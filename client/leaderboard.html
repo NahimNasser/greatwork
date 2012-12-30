@@ -9,13 +9,7 @@
 <div id="fb-root"></div>
 
   <div id="interface">
-    {{#if currentUser}}
     {{> currentplayer}}
-    {{/if}}
-      {{loginButtons}}
-    <!-- 
-      <h3>Click on an individual to give them great work</h3> 
-    -->
     {{> messages}}
     {{> leaderboard}}
   </div>
@@ -23,16 +17,27 @@
 
 <template name="currentplayer">
 <div class="currentplayer">
+    {{#if currentUser}}
+    <div class="score-picture">
 
-    <div class="current-picture">
-          <img src='https://graph.facebook.com/{{ currentplayer.facebook_id }}/picture' width="70" height="70" />
+        <div class="current-picture">
+          <figure>
+              <img src='https://graph.facebook.com/{{ currentplayer.facebook_id }}/picture' width="70" height="70" />
+            </figure>
+        </div>
+
+        <div class="current-player-score">
+          <span class="current-score">{{currentplayer.score}}</span>
+          <span class="current-points">Points</span>
+        </div>
+
+      </div>
+
+    <div class="current-player-menu">
+      <!--<span class="current-name">{{currentplayer.name}}</span>-->
     </div>
-
-    <div class="current-player-score">
-      <span class="current-score">{{currentplayer.score}}</span>
-      <span class="current-points">Points</span>
-    </div>
-
+    {{/if}}
+    {{loginButtons}}
 </div>
 </template>
 
@@ -72,14 +77,10 @@
       </div> <!-- .name_score -->
       
       <div class="leave_comment">
-        <div class="input_form">
-          <form>
+        <form>
             <input name="greatMessage" maxlength="300" type="text" class="greatMessage" required="required" placeholder="Enter your great work comment here" />
-          </form>
-        </div>
-        <div class="go_buttons">
-          <input type="button" class="inc btn btn-primary" value="give it!" />
-        </div> <!-- .leave_comment -->
+            <input type="submit" class="inc btn btn-primary" value="give" />
+        </form>
       </div> <!-- .leave_comment -->
 
       <div class="accomplishments {{selectedaccomplishment}}">

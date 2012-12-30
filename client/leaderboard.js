@@ -10,6 +10,18 @@ if (Meteor.isClient) {
     }
   });
 
+    function toggleCardFlip(e){
+    e.preventDefault();
+            $(e.target).closest('.front_card').css({
+          display: 'none'
+        });
+        $thisComment = $(e.target).closest('.front_card').next();
+        $thisComment.addClass('animated bounceIn');
+        $thisComment.css({
+          display: 'block'
+        });
+  };
+
   Handlebars.registerHelper('formatted_time', function(object) {
     var d = moment(object);
     return d.fromNow();
@@ -111,6 +123,7 @@ if (Meteor.isClient) {
     },
 
     'click input.inc': function (e) {
+      e.preventDefault();
       var $great = $(e.target);
       if (!$great.hasClass('player')) {
           $great = $great.parents('.player');
@@ -124,6 +137,7 @@ if (Meteor.isClient) {
         toastr.error(error.reason);
       });
 
+      $great.find('.greatMessage').val('');
     },
 
     'click #showmore': function (e) {
