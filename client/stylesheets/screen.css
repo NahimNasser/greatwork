@@ -145,14 +145,23 @@ body {
   width: 100%;
   position: relative;
 }
-/* line 20, ../../styling/sass/partials/_leaderboard.scss */
+/* line 17, ../../styling/sass/partials/_leaderboard.scss */
+.player:hover {
+  background-color: #C82506;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+/* line 24, ../../styling/sass/partials/_leaderboard.scss */
 .player .picture {
   height: 80px;
   position: relative;
   float: left;
   margin: 0;
 }
-/* line 26, ../../styling/sass/partials/_leaderboard.scss */
+/* line 30, ../../styling/sass/partials/_leaderboard.scss */
 .player figure {
   border: 1px solid #c9c9c9;
   padding: 3px;
@@ -177,7 +186,7 @@ body {
   border-radius: 40px;
 }
 
-/* line 31, ../../styling/sass/partials/_leaderboard.scss */
+/* line 35, ../../styling/sass/partials/_leaderboard.scss */
 .player_details {
   width: 600px;
   float: left;
@@ -187,10 +196,10 @@ body {
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
   border-radius: 10px;
-  padding: 3px;
+  padding: 2px;
 }
 
-/* line 39, ../../styling/sass/partials/_leaderboard.scss */
+/* line 43, ../../styling/sass/partials/_leaderboard.scss */
 .name_score {
   float: left;
   width: 85%;
@@ -202,36 +211,33 @@ body {
   -o-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 46, ../../styling/sass/partials/_leaderboard.scss */
+/* line 50, ../../styling/sass/partials/_leaderboard.scss */
 .name_score .name {
-  width: 300px;
+  width: 320px;
   font-size: 28px;
   margin: 21px 0 0 20px;
   line-height: 28px;
   display: block;
+  white-space: nowrap;
   font-weight: bold;
   float: left;
 }
-/* line 48, ../../styling/sass/partials/_leaderboard.scss */
-.name_score .name:hover {
-  background-color: darkblue;
-  -webkit-transition: background-color 0.5s;
-  -moz-transition: background-color 0.5s;
-  -o-transition: background-color 0.5s;
-  transition: background-color 0.5s;
-}
-/* line 60, ../../styling/sass/partials/_leaderboard.scss */
+/* line 59, ../../styling/sass/partials/_leaderboard.scss */
 .name_score .name p {
   font-size: 10px;
   margin: 0;
   line-height: 12px;
 }
-/* line 65, ../../styling/sass/partials/_leaderboard.scss */
+/* line 64, ../../styling/sass/partials/_leaderboard.scss */
 .name_score .name a {
   color: white;
   text-decoration: none;
 }
-/* line 71, ../../styling/sass/partials/_leaderboard.scss */
+/* line 70, ../../styling/sass/partials/_leaderboard.scss */
+.name_score .small-font {
+  font-size: 22px;
+}
+/* line 74, ../../styling/sass/partials/_leaderboard.scss */
 .name_score .score {
   font-size: 50px;
   margin: 12px 20px 0 0px;
@@ -241,7 +247,7 @@ body {
   float: right;
 }
 
-/* line 82, ../../styling/sass/partials/_leaderboard.scss */
+/* line 85, ../../styling/sass/partials/_leaderboard.scss */
 .front_card {
   width: 100%;
   border: none;
@@ -249,14 +255,14 @@ body {
   line-height: 80px;
 }
 
-/* line 89, ../../styling/sass/partials/_leaderboard.scss */
+/* line 92, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments {
   display: none;
   width: 98%;
   margin: 0 auto;
   color: black;
 }
-/* line 94, ../../styling/sass/partials/_leaderboard.scss */
+/* line 97, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments h4 {
   margin: 0 20px;
   color: white;
@@ -265,19 +271,19 @@ body {
   line-height: 40px;
   text-indent: 20px;
 }
-/* line 102, ../../styling/sass/partials/_leaderboard.scss */
+/* line 105, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments .table_head {
   margin: 0 20px;
   height: 24px;
   background: #aaa;
   clear: left;
 }
-/* line 107, ../../styling/sass/partials/_leaderboard.scss */
+/* line 110, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments .table_head > div {
   float: left;
   width: 24%;
 }
-/* line 112, ../../styling/sass/partials/_leaderboard.scss */
+/* line 115, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments .accomplishment_text {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e7e7e7), color-stop(50%, #e3dfe3));
   background-image: -webkit-linear-gradient(#e7e7e7 0%, #e3dfe3 50%);
@@ -289,16 +295,16 @@ body {
   border-bottom: 1px solid #adadad;
   padding: 12px 0;
 }
-/* line 113, ../../styling/sass/partials/_leaderboard.scss */
+/* line 116, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments .accomplishment_text > div {
   float: left;
   width: 24%;
 }
-/* line 123, ../../styling/sass/partials/_leaderboard.scss */
+/* line 126, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments .table_head .heading.message, .accomplishments .accomplishment_text .details.message {
   width: 52%;
 }
-/* line 126, ../../styling/sass/partials/_leaderboard.scss */
+/* line 129, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments .table_head .accomp span {
   line-height: 24px;
   font-size: 10px;
@@ -307,7 +313,7 @@ body {
   margin: 0 0 0 20px;
 }
 
-/* line 135, ../../styling/sass/partials/_leaderboard.scss */
+/* line 138, ../../styling/sass/partials/_leaderboard.scss */
 .accomp.from figure {
   border: 1px solid #c9c9c9;
   padding: 3px;
@@ -332,24 +338,24 @@ body {
   border-radius: 40px;
 }
 
-/* line 140, ../../styling/sass/partials/_leaderboard.scss */
+/* line 143, ../../styling/sass/partials/_leaderboard.scss */
 .details span {
   color: #272727;
 }
-/* line 143, ../../styling/sass/partials/_leaderboard.scss */
+/* line 146, ../../styling/sass/partials/_leaderboard.scss */
 .details.from span {
   float: left;
   font-size: 12px;
   margin: 10px 0 0 0;
   font-weight: bold;
 }
-/* line 149, ../../styling/sass/partials/_leaderboard.scss */
+/* line 152, ../../styling/sass/partials/_leaderboard.scss */
 .details.message span {
   float: left;
   font-size: 14px;
   margin: 8px 0 0 20px;
 }
-/* line 154, ../../styling/sass/partials/_leaderboard.scss */
+/* line 157, ../../styling/sass/partials/_leaderboard.scss */
 .details.points span {
   font-size: 36px;
   color: #5f5f5f;
@@ -358,13 +364,13 @@ body {
   margin: 0 0 0 20px;
 }
 
-/* line 163, ../../styling/sass/partials/_leaderboard.scss */
+/* line 166, ../../styling/sass/partials/_leaderboard.scss */
 .leave_comment {
   width: 100%;
   display: none;
   height: 80px;
 }
-/* line 167, ../../styling/sass/partials/_leaderboard.scss */
+/* line 170, ../../styling/sass/partials/_leaderboard.scss */
 .leave_comment .greatMessage {
   text-indent: 20px;
   float: left;
@@ -381,11 +387,11 @@ body {
   -o-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 179, ../../styling/sass/partials/_leaderboard.scss */
+/* line 182, ../../styling/sass/partials/_leaderboard.scss */
 .leave_comment .inc_div {
   line-height: 80px;
 }
-/* line 182, ../../styling/sass/partials/_leaderboard.scss */
+/* line 185, ../../styling/sass/partials/_leaderboard.scss */
 .leave_comment .inc {
   float: left;
   height: 70px;
@@ -409,20 +415,20 @@ body {
   margin-top: 5px;
 }
 
-/* line 197, ../../styling/sass/partials/_leaderboard.scss */
+/* line 200, ../../styling/sass/partials/_leaderboard.scss */
 .player.selected .accomplishments {
   display: block;
 }
 
 @media only screen and (min-width: 600px) {
-  /* line 202, ../../styling/sass/partials/_leaderboard.scss */
+  /* line 205, ../../styling/sass/partials/_leaderboard.scss */
   .leaderboard {
     position: relative;
     top: 27px;
     left: -60px;
   }
 
-  /* line 208, ../../styling/sass/partials/_leaderboard.scss */
+  /* line 211, ../../styling/sass/partials/_leaderboard.scss */
   .input_form {
     display: block;
     float: left;
@@ -430,7 +436,7 @@ body {
     width: 100%;
   }
 
-  /* line 215, ../../styling/sass/partials/_leaderboard.scss */
+  /* line 218, ../../styling/sass/partials/_leaderboard.scss */
   .btn.give {
     height: 40px;
     padding: 20px;
@@ -447,7 +453,7 @@ body {
     background-image: -o-linear-gradient(#ffffff 0%, #f5f5f5 50%);
     background-image: linear-gradient(#ffffff 0%, #f5f5f5 50%);
   }
-  /* line 221, ../../styling/sass/partials/_leaderboard.scss */
+  /* line 224, ../../styling/sass/partials/_leaderboard.scss */
   .btn.give:hover {
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f5f5f5), color-stop(50%, #ffffff));
     background-image: -webkit-linear-gradient(#f5f5f5 0%, #ffffff 50%);
@@ -456,7 +462,7 @@ body {
     background-image: linear-gradient(#f5f5f5 0%, #ffffff 50%);
   }
 
-  /* line 226, ../../styling/sass/partials/_leaderboard.scss */
+  /* line 229, ../../styling/sass/partials/_leaderboard.scss */
   .message_text {
     width: 100%;
   }

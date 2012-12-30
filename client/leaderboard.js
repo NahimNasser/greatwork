@@ -42,6 +42,11 @@ if (Meteor.isClient) {
   Template.player.rendered = function() {
           var $player = $(this.find('.player'));
           var $score = $(this.find('.score'));
+          var $name = $(this.find('.name'));
+          if (this.data.name.length > 25){
+            console.log(this.data.name);
+            $name.addClass('small-font');
+          }
           // Meteor.defer(function() {
           // $.scrollTo($player, 800);
           $score.addClass('animated flip');
