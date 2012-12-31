@@ -12,14 +12,18 @@
           //Additional facebook data whoring:
           var result = Meteor.http.get("https://graph.facebook.com/me", {params: {access_token: user.services.facebook.accessToken}});
           user.profile.services.facebook.meData = result.data;
-          Players.insert({name: options.profile.name, score: 0, facebook_id:user.services.facebook.id}); //Eventually, this needs to be moved to a post-creation hook
+          Players.insert({name: options.profile.name, score: 0, points_to_give: 40, facebook_id:user.services.facebook.id}); //Eventually, this needs to be moved to a post-creation hook
         return user;
       });
   Meteor.Router.add('/404', [404, "There's nothing here!"]);
 
   Meteor.startup(function () {
 
-    // All values listed below are default
+    Meteor.setInterval(function() {
+      console.log('Points Dispatched');
+      Players.update({points_to_give: {$lte: 95}}, {$inc: {points_to_give: 5}}, {multi: true});
+    }, 30000); //Number of milliseconds to get more points
+
     collectionApi = new CollectionAPI({
       authToken: undefined,              // Require this string to be passed in on each request
       apiPath: 'greatapi',          // API path prefix

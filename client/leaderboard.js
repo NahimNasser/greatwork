@@ -27,6 +27,11 @@ if (Meteor.isClient) {
     }
   };
 
+  Template.currentplayer.rendered = function(){
+    var $score = $(this.find('.current-score'));
+    $score.addClass('animated flipInX');
+  };
+
   Template.player.rendered = function() {
           var $player = $(this.find('.player'));
           var $score = $(this.find('.score'));
