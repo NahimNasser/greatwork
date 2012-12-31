@@ -10,18 +10,6 @@ if (Meteor.isClient) {
     }
   });
 
-    function toggleCardFlip(e){
-    e.preventDefault();
-            $(e.target).closest('.front_card').css({
-          display: 'none'
-        });
-        $thisComment = $(e.target).closest('.front_card').next();
-        $thisComment.addClass('animated bounceIn');
-        $thisComment.css({
-          display: 'block'
-        });
-  };
-
   Handlebars.registerHelper('formatted_time', function(object) {
     var d = moment(object);
     return d.fromNow();
@@ -66,7 +54,6 @@ if (Meteor.isClient) {
 
   Template.player.show_accomplishments = function (e) {
       e.preventDefault();
-      var player = this;
       var $great = $(e.target);
       if (!$great.hasClass('player')) {
           $great = $great.parents('.player');
@@ -75,20 +62,14 @@ if (Meteor.isClient) {
       var $all = $('.accomplishments');
 
       if ($(e.target).hasClass('name') ||  $(e.target).hasClass('score') || $(e.target).hasClass('player') || $(e.target).hasClass('show_details')){
-        $all.parents('.player').removeClass("selected");
         if (window.UGH) {
             window.UGH.find('.accomplishments').hide(0, function() {
                 $great.find('.accomplishments').show(0, function(){
-                  $great.addClass('selected');
-                  Session.set("selected_player", player._id);
                   window.UGH = $great;
-                  // UGH == great, makes sense! great work yourself jeff
                 });
             });
         } else {
                 $great.find('.accomplishments').slideDown(0, function(){
-                  $great.addClass('selected');
-                  Session.set("selected_player", player._id);
                   window.UGH = $great;
                 });
         }

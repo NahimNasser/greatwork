@@ -141,6 +141,7 @@ body {
 
 /* line 16, ../../styling/sass/partials/_leaderboard.scss */
 .player {
+  position: absolute;
   -webkit-transition: all, 200ms;
   -moz-transition: all, 200ms;
   -o-transition: all, 200ms;
@@ -149,7 +150,7 @@ body {
   width: 100%;
   position: relative;
 }
-/* line 17, ../../styling/sass/partials/_leaderboard.scss */
+/* line 18, ../../styling/sass/partials/_leaderboard.scss */
 .player:hover {
   padding: 10px;
   border: 1px dashed lightgrey;
@@ -159,14 +160,14 @@ body {
   -o-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 26, ../../styling/sass/partials/_leaderboard.scss */
+/* line 27, ../../styling/sass/partials/_leaderboard.scss */
 .player .picture {
   height: 80px;
   position: relative;
   float: left;
   margin: 0;
 }
-/* line 32, ../../styling/sass/partials/_leaderboard.scss */
+/* line 33, ../../styling/sass/partials/_leaderboard.scss */
 .player figure {
   border: 1px solid #c9c9c9;
   padding: 3px;
@@ -191,7 +192,7 @@ body {
   border-radius: 40px;
 }
 
-/* line 37, ../../styling/sass/partials/_leaderboard.scss */
+/* line 38, ../../styling/sass/partials/_leaderboard.scss */
 .player_details {
   width: 600px;
   float: left;
@@ -204,7 +205,7 @@ body {
   padding: 2px;
 }
 
-/* line 45, ../../styling/sass/partials/_leaderboard.scss */
+/* line 46, ../../styling/sass/partials/_leaderboard.scss */
 .name_score {
   float: left;
   width: 85%;
@@ -216,7 +217,7 @@ body {
   -o-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 52, ../../styling/sass/partials/_leaderboard.scss */
+/* line 53, ../../styling/sass/partials/_leaderboard.scss */
 .name_score .name {
   width: 320px;
   font-size: 28px;
@@ -227,16 +228,15 @@ body {
   font-weight: bold;
   float: left;
 }
-/* line 61, ../../styling/sass/partials/_leaderboard.scss */
+/* line 62, ../../styling/sass/partials/_leaderboard.scss */
 .name_score .name p {
   font-size: 10px;
   margin: 0;
   line-height: 12px;
 }
-/* line 66, ../../styling/sass/partials/_leaderboard.scss */
+/* line 67, ../../styling/sass/partials/_leaderboard.scss */
 .name_score .name a {
   color: white;
-  text-decoration: none;
 }
 /* line 72, ../../styling/sass/partials/_leaderboard.scss */
 .name_score .small-font {
@@ -263,11 +263,10 @@ body {
 /* line 94, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments {
   display: none;
-  width: 98%;
   margin: 0 auto;
   color: black;
 }
-/* line 99, ../../styling/sass/partials/_leaderboard.scss */
+/* line 98, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments h4 {
   margin: 0 20px;
   color: white;
@@ -276,19 +275,19 @@ body {
   line-height: 40px;
   text-indent: 20px;
 }
-/* line 107, ../../styling/sass/partials/_leaderboard.scss */
+/* line 106, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments .table_head {
   margin: 0 20px;
   height: 24px;
   background: #aaa;
   clear: left;
 }
-/* line 112, ../../styling/sass/partials/_leaderboard.scss */
+/* line 111, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments .table_head > div {
   float: left;
   width: 24%;
 }
-/* line 117, ../../styling/sass/partials/_leaderboard.scss */
+/* line 116, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments .accomplishment_text {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e7e7e7), color-stop(50%, #e3dfe3));
   background-image: -webkit-linear-gradient(#e7e7e7 0%, #e3dfe3 50%);
@@ -300,16 +299,16 @@ body {
   border-bottom: 1px solid #adadad;
   padding: 12px 0;
 }
-/* line 118, ../../styling/sass/partials/_leaderboard.scss */
+/* line 117, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments .accomplishment_text > div {
   float: left;
   width: 24%;
 }
-/* line 128, ../../styling/sass/partials/_leaderboard.scss */
+/* line 127, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments .table_head .heading.message, .accomplishments .accomplishment_text .details.message {
   width: 52%;
 }
-/* line 131, ../../styling/sass/partials/_leaderboard.scss */
+/* line 130, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments .table_head .accomp span {
   line-height: 24px;
   font-size: 10px;
@@ -318,7 +317,7 @@ body {
   margin: 0 0 0 20px;
 }
 
-/* line 140, ../../styling/sass/partials/_leaderboard.scss */
+/* line 139, ../../styling/sass/partials/_leaderboard.scss */
 .accomp.from figure {
   border: 1px solid #c9c9c9;
   padding: 3px;
@@ -343,24 +342,24 @@ body {
   border-radius: 40px;
 }
 
-/* line 145, ../../styling/sass/partials/_leaderboard.scss */
+/* line 144, ../../styling/sass/partials/_leaderboard.scss */
 .details span {
   color: #272727;
 }
-/* line 148, ../../styling/sass/partials/_leaderboard.scss */
+/* line 147, ../../styling/sass/partials/_leaderboard.scss */
 .details.from span {
   float: left;
   font-size: 12px;
   margin: 10px 0 0 0;
   font-weight: bold;
 }
-/* line 154, ../../styling/sass/partials/_leaderboard.scss */
+/* line 153, ../../styling/sass/partials/_leaderboard.scss */
 .details.message span {
   float: left;
   font-size: 14px;
   margin: 8px 0 0 20px;
 }
-/* line 159, ../../styling/sass/partials/_leaderboard.scss */
+/* line 158, ../../styling/sass/partials/_leaderboard.scss */
 .details.points span {
   font-size: 36px;
   color: #5f5f5f;
@@ -369,13 +368,13 @@ body {
   margin: 0 0 0 20px;
 }
 
-/* line 168, ../../styling/sass/partials/_leaderboard.scss */
+/* line 167, ../../styling/sass/partials/_leaderboard.scss */
 .leave_comment {
   width: 100%;
   display: none;
   height: 80px;
 }
-/* line 172, ../../styling/sass/partials/_leaderboard.scss */
+/* line 171, ../../styling/sass/partials/_leaderboard.scss */
 .leave_comment .greatMessage {
   text-indent: 20px;
   float: left;
@@ -392,11 +391,11 @@ body {
   -o-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 184, ../../styling/sass/partials/_leaderboard.scss */
+/* line 183, ../../styling/sass/partials/_leaderboard.scss */
 .leave_comment .inc_div {
   line-height: 80px;
 }
-/* line 187, ../../styling/sass/partials/_leaderboard.scss */
+/* line 186, ../../styling/sass/partials/_leaderboard.scss */
 .leave_comment .inc {
   float: left;
   height: 70px;
@@ -420,20 +419,20 @@ body {
   margin-top: 5px;
 }
 
-/* line 202, ../../styling/sass/partials/_leaderboard.scss */
+/* line 201, ../../styling/sass/partials/_leaderboard.scss */
 .player.selected .accomplishments {
   display: block;
 }
 
 @media only screen and (min-width: 600px) {
-  /* line 207, ../../styling/sass/partials/_leaderboard.scss */
+  /* line 206, ../../styling/sass/partials/_leaderboard.scss */
   .leaderboard {
     position: relative;
     top: 27px;
     left: -60px;
   }
 
-  /* line 213, ../../styling/sass/partials/_leaderboard.scss */
+  /* line 212, ../../styling/sass/partials/_leaderboard.scss */
   .input_form {
     display: block;
     float: left;
@@ -441,7 +440,7 @@ body {
     width: 100%;
   }
 
-  /* line 220, ../../styling/sass/partials/_leaderboard.scss */
+  /* line 219, ../../styling/sass/partials/_leaderboard.scss */
   .btn.give {
     height: 40px;
     padding: 20px;
@@ -458,7 +457,7 @@ body {
     background-image: -o-linear-gradient(#ffffff 0%, #f5f5f5 50%);
     background-image: linear-gradient(#ffffff 0%, #f5f5f5 50%);
   }
-  /* line 226, ../../styling/sass/partials/_leaderboard.scss */
+  /* line 225, ../../styling/sass/partials/_leaderboard.scss */
   .btn.give:hover {
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f5f5f5), color-stop(50%, #ffffff));
     background-image: -webkit-linear-gradient(#f5f5f5 0%, #ffffff 50%);
@@ -467,7 +466,7 @@ body {
     background-image: linear-gradient(#f5f5f5 0%, #ffffff 50%);
   }
 
-  /* line 231, ../../styling/sass/partials/_leaderboard.scss */
+  /* line 230, ../../styling/sass/partials/_leaderboard.scss */
   .message_text {
     width: 100%;
   }
