@@ -39,19 +39,19 @@ if (Meteor.isClient) {
   Template.player.rendered = function() {
           var self = this;
           var $player = $(this.find('.player'));
-          var $score = $(this.find('.score'));
           var $name = $(this.find('.name'));
-          
-          if (self.first_render_complete){
-            if (self.data.name.length > 25){
+          if (self.data.name.length > 25){
               $name.addClass('small-font');
             }
+          if (self.first_render_complete){
+            var $score = $(this.find('.score'));
             Meteor.defer(function() {
                 $score.addClass('animated flip');
                 $player.addClass('animated bounce');
             });
         }
         else {
+          $player.addClass('animated flipInX');
           self.first_render_complete = true;
         }
   };
