@@ -45,8 +45,8 @@ Meteor.methods({
             from: "noreply@greatworkapp.com",
             to: to,
             replyTo: "great@greatworkapp.com",
-            subject: "Great work, from " + options.name,
-            html: '<html><h1>' + options.name + ' has given you great work! <br /><strong>"' + options.message + '"</strong></h1><br /><h2>' + options.points + ' points received.</h2> <br /> Watch the action live at <a href="http://www.greatworkapp.com">GreatWork</a></html>'
+            subject: "Great work, from " + Meteor.user().profile.name,
+            html: '<html><h1>' + Meteor.user().profile.name + ' has given you great work! <br /><strong>"' + options.message + '"</strong></h1><br /><h2>' + options.points + ' points received.</h2> <br /> Watch the action live at <a href="http://www.greatworkapp.com">GreatWork</a></html>'
         });
     }
 });
