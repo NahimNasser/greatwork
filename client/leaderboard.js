@@ -1,6 +1,10 @@
+
 // Set up a collection to contain player information. On the server,
 // it is backed by a MongoDB collection named "players".
 if (Meteor.isClient) {
+  Template.player.preserve({
+        '.player': function (node) {return node.id; }
+      });
   Meteor.subscribe("players");
   Meteor.subscribe("messages");
 
@@ -33,16 +37,23 @@ if (Meteor.isClient) {
   };
 
   Template.player.rendered = function() {
+          var self = this;
           var $player = $(this.find('.player'));
           var $score = $(this.find('.score'));
           var $name = $(this.find('.name'));
-          if (this.data.name.length > 25){
-            $name.addClass('small-font');
-          }
-          // Meteor.defer(function() {
-          // $.scrollTo($player, 800);
-          $score.addClass('animated flip');
-          $player.addClass('animated bounce');
+          
+          if (self.first_render_complete){
+            if (self.data.name.length > 25){
+              $name.addClass('small-font');
+            }
+            Meteor.defer(function() {
+                $score.addClass('animated flip');
+                $player.addClass('animated bounce');
+            });
+        }
+        else {
+          self.first_render_complete = true;
+        }
   };
 
   Template.leaderboard.players = function () {
@@ -57,7 +68,15 @@ if (Meteor.isClient) {
     return Messages.find({victim: this.name}, {sort: {time: -1}}).fetch().slice(0, Session.get('page_size'));
   };
 
-  Template.player.show_accomplishments = function (e) {
+  Template.currentplayer.events({
+    'click .fb_invite': function(e){
+      facebookinit();
+      sendRequestViaMultiFriendSelector();
+    }
+  });
+
+  Template.player.events({
+    'click, click.show_details': function(e) {
       e.preventDefault();
       var $great = $(e.target);
       if (!$great.hasClass('player')) {
@@ -80,19 +99,6 @@ if (Meteor.isClient) {
         }
 
       }
-  };
-
-  Template.currentplayer.events({
-    'click .fb_invite': function(e){
-      facebookinit();
-      sendRequestViaMultiFriendSelector();
-    }
-  });
-
-  Template.player.events({
-    'click': function(e) {
-      e.preventDefault();
-      Template.player.show_accomplishments(e);
     },
 
     'click .give': function(e){
@@ -105,11 +111,6 @@ if (Meteor.isClient) {
         $thisComment.css({
           display: 'block'
         });
-    },
-
-    'click .show_details': function (e){
-      e.preventDefault();
-      Template.player.show_accomplishments(e);
     },
 
     'click input.inc': function (e) {
@@ -129,7 +130,9 @@ if (Meteor.isClient) {
           message: $great.find('.greatMessage').val(),
           points: 5
         }, function (error, result){
-          toastr.error(error.reason);
+          if (error){
+            toastr.error(error.reason);
+          }
         });
 
         $great.find('.greatMessage').val('');

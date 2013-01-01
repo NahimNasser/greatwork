@@ -12,7 +12,8 @@
           //Additional facebook data whoring:
           var result = Meteor.http.get("https://graph.facebook.com/me", {params: {access_token: user.services.facebook.accessToken}});
           user.profile.services.facebook.meData = result.data;
-          Players.insert({name: options.profile.name, score: 0, points_to_give: 40, facebook_id:user.services.facebook.id}); //Eventually, this needs to be moved to a post-creation hook
+          user.profile.points_to_give = 40;
+          Players.insert({name: options.profile.name, score: 0, facebook_id:user.services.facebook.id}); //Eventually, this needs to be moved to a post-creation hook
         return user;
       });
   Meteor.Router.add('/404', [404, "There's nothing here!"]);
@@ -21,8 +22,8 @@
 
     Meteor.setInterval(function() {
       console.log('Points Dispatched');
-      Players.update({points_to_give: {$lte: 95}}, {$inc: {points_to_give: 5}}, {multi: true});
-    }, 30000); //Number of milliseconds to get more points
+      Meteor.users.update({"profile.points_to_give": {$lte: 95}}, {$inc: {"profile.points_to_give": 5}}, {multi: true});
+    }, 10000); //Number of milliseconds to get more points
 
     collectionApi = new CollectionAPI({
       authToken: undefined,              // Require this string to be passed in on each request
@@ -53,14 +54,12 @@
   });
 
   // Meteor.startup(function () {
-    // if (Players.find().count() === 0) {
-    //   var names = ["Ada Lovelace",
-    //   "Grace Hopper",
-    //   "Marie Curie",
-    //   "Carl Friedrich Gauss",
-    //   "Nikola Tesla",
-    //   "Claude Shannon"];
-    //   for (var i = 0; i < names.length; i++)
-    //     Players.insert({name: names[i], score: Math.floor(Math.random()*10)*5});
-    // }
+  //     var names = ["Ada Lovelace",
+  //     "Grace Hopper",
+  //     "Marie Curie",
+  //     "Carl Friedrich Gauss",
+  //     "Nikola Tesla",
+  //     "Claude Shannon"];
+  //     for (var i = 0; i < names.length; i++)
+  //         Players.insert({name: names[i], score: Math.floor(Math.random()*10)*5, points_to_give: 40, facebook_id:1}); //Eventually, this needs to be moved to a post-creation hook
   // });

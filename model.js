@@ -30,13 +30,12 @@ Meteor.methods({
                   throw new Meteor.Error(400, "Great work, do it again!");
         }
 
-        var user_player = Players.findOne({name: Meteor.user().profile.name});
-
-        if (user_player.points_to_give <= 0) {
+        if (Meteor.user().profile.points_to_give<= 0) {
             throw new Meteor.Error(400, "You cannot give out any more points today");
         }
 
-        Players.update(user_player._id, {$inc: {points_to_give: -1 * parseInt(options.points, 10) }});
+        Meteor.users.update(Meteor.user()._id, {$inc: {"profile.points_to_give": -1 * parseInt(options.points, 10)} } );
+        // Players.update(user_player._id, {$inc: {points_to_give: -1 * parseInt(options.points, 10) }});
         Players.update(options.victim._id, {$inc: {score: parseInt(options.points, 10) }});
         Messages.insert({victim: options.victim.name, facebook_id: Meteor.user().profile.services.facebook.id, name: Meteor.user().profile.name, message: options.message, time: Date.now(), points: options.points});
         var to = Meteor.users.findOne({"profile.name": options.victim.name}).profile.services.facebook.email;
