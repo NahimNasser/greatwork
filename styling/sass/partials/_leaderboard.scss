@@ -27,6 +27,8 @@ body {
   @media only screen and (min-width: 600px) {
     @include transition(all, 200ms);
     &:hover{
+      cursor: hand; 
+      cursor: pointer;
       padding: 10px;
       border: 1px dashed lightgrey;
       @include border-radius(10px);
@@ -163,7 +165,8 @@ body {
   &.from span {
     float: left;
     font-size: 12px;
-    margin: 10px 0 0 0;
+    margin: 10px 0 0 10px;
+    width: 100%;
     font-weight: bold;
   }
   &.message span {
@@ -229,7 +232,6 @@ body {
       @media only screen and (min-width: 600px) {
         @include right-rounded(10px);
       }
-      @include border-radius(10px);
       @include background-image(linear-gradient(color-stops(rgb(255,255,255) 0%, rgb(245,245,245) 50%)));
       &:hover{
         @include background-image(linear-gradient(color-stops(rgb(245,245,245) 0%), rgb(255,255,255) 50%));
