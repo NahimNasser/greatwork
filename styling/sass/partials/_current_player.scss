@@ -1,8 +1,12 @@
 .currentplayer {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: block;
+  @media only screen and (min-width: 600px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    float: none;
+  }
+    display: block;
+    float:left;
 }
 
 .current-picture{

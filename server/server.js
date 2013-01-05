@@ -23,7 +23,7 @@
     Meteor.setInterval(function() {
       console.log('Points Dispatched');
       Meteor.users.update({"profile.points_to_give": {$lte: 95}}, {$inc: {"profile.points_to_give": 5}}, {multi: true});
-    }, 10000); //Number of milliseconds to get more points
+    }, 3600000); //Number of milliseconds to get more points
 
     collectionApi = new CollectionAPI({
       authToken: undefined,              // Require this string to be passed in on each request

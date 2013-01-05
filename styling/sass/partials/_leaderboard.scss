@@ -4,40 +4,53 @@ body {
 }
 
 #interface {
-  width: 95%;
+  width: 100%;
   max-width: 700px;
   margin: auto;
 }
 
 .chat { 
+  float: left;
+  display: none;
   text-align: center;
+  @media only screen and (min-width: 600px) {
+    float: none;
+    display: block;
+  }
 }
 
 .player {
   position: absolute;
-  &:hover{
-    padding: 10px;
-    border: 1px dashed lightgrey;
-    @include border-radius(10px);
-  }
-  @include transition(all, 200ms);
+
   overflow: hidden;
   width: 100%;
   position: relative;
+  @media only screen and (min-width: 600px) {
+    @include transition(all, 200ms);
+    &:hover{
+      padding: 10px;
+      border: 1px dashed lightgrey;
+      @include border-radius(10px);
+    }
+  }
+
   .picture {
       height: 80px;
       position: relative;
       float: left;
       margin: 0;
   }
+
   figure {
     @include round-border-figure(70px);
   }
 }
 
 .player_details {
-  width: 600px;
-  float: left;
+  @media only screen and (min-width: 600px) {
+    width: 600px;
+    float: left;
+  }
   box-sizing: border-box;
   @include border-radius(10px);
   padding: 2px;
@@ -172,6 +185,9 @@ body {
     text-indent: 20px;
     float:left;
     width: 85%;
+    @media only screen and (min-width: 600px) {
+      width: 85%;
+    }
     padding: 0px;
     padding-left: 3px;
     box-sizing: border-box;
@@ -184,12 +200,15 @@ body {
     line-height: 80px;
   }
   .inc {
-    float:left;
     height: 70px;
     border: 1px solid lightgrey;
     color: white;
     @include background-image(linear-gradient(color-stops(lighten(#0E7866, 10), #0E7866)));
-    @include right-rounded(10px);
+    @media only screen and (min-width: 600px) {
+      @include right-rounded(10px);
+      float:left;
+    }
+    @include border-radius(10px);
     width: 75px;
     text-align: center;
     font-size: 18px;
@@ -197,37 +216,23 @@ body {
     margin-top: 5px;
   }
 }
-
-.player.selected .accomplishments {
-  display: block;
-}
-
-@media only screen and (min-width: 600px) {
-  .leaderboard {
-    position: relative;
-    top: 27px;
-    left: -60px;
-  }
-
-  .input_form {
-    display: block;
-    float: left;
-    height: 100%;
-    width: 100%;
-  }
+  
   .btn {
       &.give {
       height: 40px;
       padding: 20px;
       border: 1px solid lightgrey;
-      @include right-rounded(10px);
+      @media only screen and (min-width: 600px) {
+        @include right-rounded(10px);
+      }
+      @include border-radius(10px);
       @include background-image(linear-gradient(color-stops(rgb(255,255,255) 0%, rgb(245,245,245) 50%)));
       &:hover{
         @include background-image(linear-gradient(color-stops(rgb(245,245,245) 0%), rgb(255,255,255) 50%));
       }
     }
   }
-  .message_text {
-    width: 100%;
-  }
+
+.player.selected .accomplishments {
+  display: block;
 }
