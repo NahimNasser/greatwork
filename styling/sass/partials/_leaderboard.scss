@@ -21,7 +21,6 @@ body {
 
 .player {
   position: absolute;
-
   overflow: hidden;
   width: 100%;
   position: relative;
@@ -105,10 +104,12 @@ body {
 }
 
 .accomplishments {
+  width: 90%;
+  float: left;
   display: none;
-  margin: 0 auto;
   color: black;
   h4 {
+    width: 100%;
     margin: 0 20px;
     color: white;
     background: #124a6b;
@@ -117,6 +118,7 @@ body {
     text-indent: 20px;
   }
   .table_head {
+    width: 100%;
     margin: 0 20px;
     height: 24px;
     background: #aaa;
@@ -127,6 +129,7 @@ body {
     }
   }
   .accomplishment_text {
+    width: 100%;
     > div {
       float: left;
       width: 24%;
@@ -165,6 +168,7 @@ body {
   }
   &.message span {
     float: left;
+    width: 100%;
     font-size: 14px;
     margin: 8px 0 0 20px;
   }

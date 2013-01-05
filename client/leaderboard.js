@@ -83,13 +83,13 @@ if (Meteor.isClient) {
           $great = $great.parents('.player');
       }
 
-      if (! $(e.target).hasClass('give')){
+      if (! $(e.target).hasClass('give') && ! $(e.target).hasClass('greatMessage') ){
         if (! $great.find('.accomplishments').is(":visible")) {
-          $('.accomplishments').slideUp();
-          $great.find('.accomplishments').slideDown();
+          $('.accomplishments').hide();
+          $great.find('.accomplishments').show();
         }
         else {
-          $('.accomplishments').slideUp();
+          $('.accomplishments').hide();
         }
       }
     },

@@ -170,7 +170,7 @@ body {
     -o-transition: all, 200ms;
     transition: all, 200ms;
   }
-  /* line 30, ../../styling/sass/partials/_leaderboard.scss */
+  /* line 29, ../../styling/sass/partials/_leaderboard.scss */
   .player:hover {
     padding: 10px;
     border: 1px dashed lightgrey;
@@ -181,14 +181,14 @@ body {
     border-radius: 10px;
   }
 }
-/* line 37, ../../styling/sass/partials/_leaderboard.scss */
+/* line 36, ../../styling/sass/partials/_leaderboard.scss */
 .player .picture {
   height: 80px;
   position: relative;
   float: left;
   margin: 0;
 }
-/* line 44, ../../styling/sass/partials/_leaderboard.scss */
+/* line 43, ../../styling/sass/partials/_leaderboard.scss */
 .player figure {
   border: 1px solid #c9c9c9;
   padding: 3px;
@@ -213,7 +213,7 @@ body {
   border-radius: 40px;
 }
 
-/* line 49, ../../styling/sass/partials/_leaderboard.scss */
+/* line 48, ../../styling/sass/partials/_leaderboard.scss */
 .player_details {
   box-sizing: border-box;
   -webkit-border-radius: 10px;
@@ -224,14 +224,14 @@ body {
   padding: 2px;
 }
 @media only screen and (min-width: 600px) {
-  /* line 49, ../../styling/sass/partials/_leaderboard.scss */
+  /* line 48, ../../styling/sass/partials/_leaderboard.scss */
   .player_details {
     width: 600px;
     float: left;
   }
 }
 
-/* line 59, ../../styling/sass/partials/_leaderboard.scss */
+/* line 58, ../../styling/sass/partials/_leaderboard.scss */
 .name_score {
   float: left;
   width: 85%;
@@ -243,7 +243,7 @@ body {
   -o-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 66, ../../styling/sass/partials/_leaderboard.scss */
+/* line 65, ../../styling/sass/partials/_leaderboard.scss */
 .name_score .name {
   width: 320px;
   font-size: 28px;
@@ -254,21 +254,21 @@ body {
   font-weight: bold;
   float: left;
 }
-/* line 75, ../../styling/sass/partials/_leaderboard.scss */
+/* line 74, ../../styling/sass/partials/_leaderboard.scss */
 .name_score .name p {
   font-size: 10px;
   margin: 0;
   line-height: 12px;
 }
-/* line 80, ../../styling/sass/partials/_leaderboard.scss */
+/* line 79, ../../styling/sass/partials/_leaderboard.scss */
 .name_score .name a {
   color: white;
 }
-/* line 85, ../../styling/sass/partials/_leaderboard.scss */
+/* line 84, ../../styling/sass/partials/_leaderboard.scss */
 .name_score .small-font {
   font-size: 22px;
 }
-/* line 89, ../../styling/sass/partials/_leaderboard.scss */
+/* line 88, ../../styling/sass/partials/_leaderboard.scss */
 .name_score .score {
   font-size: 50px;
   margin: 12px 20px 0 0px;
@@ -278,7 +278,7 @@ body {
   float: right;
 }
 
-/* line 100, ../../styling/sass/partials/_leaderboard.scss */
+/* line 99, ../../styling/sass/partials/_leaderboard.scss */
 .front_card {
   width: 100%;
   border: none;
@@ -286,14 +286,16 @@ body {
   line-height: 80px;
 }
 
-/* line 107, ../../styling/sass/partials/_leaderboard.scss */
+/* line 106, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments {
+  width: 90%;
+  float: left;
   display: none;
-  margin: 0 auto;
   color: black;
 }
 /* line 111, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments h4 {
+  width: 100%;
   margin: 0 20px;
   color: white;
   background: #124a6b;
@@ -301,20 +303,22 @@ body {
   line-height: 40px;
   text-indent: 20px;
 }
-/* line 119, ../../styling/sass/partials/_leaderboard.scss */
+/* line 120, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments .table_head {
+  width: 100%;
   margin: 0 20px;
   height: 24px;
   background: #aaa;
   clear: left;
 }
-/* line 124, ../../styling/sass/partials/_leaderboard.scss */
+/* line 126, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments .table_head > div {
   float: left;
   width: 24%;
 }
-/* line 129, ../../styling/sass/partials/_leaderboard.scss */
+/* line 131, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments .accomplishment_text {
+  width: 100%;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e7e7e7), color-stop(50%, #e3dfe3));
   background-image: -webkit-linear-gradient(#e7e7e7 0%, #e3dfe3 50%);
   background-image: -moz-linear-gradient(#e7e7e7 0%, #e3dfe3 50%);
@@ -325,16 +329,16 @@ body {
   border-bottom: 1px solid #adadad;
   padding: 12px 0;
 }
-/* line 130, ../../styling/sass/partials/_leaderboard.scss */
+/* line 133, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments .accomplishment_text > div {
   float: left;
   width: 24%;
 }
-/* line 140, ../../styling/sass/partials/_leaderboard.scss */
+/* line 143, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments .table_head .heading.message, .accomplishments .accomplishment_text .details.message {
   width: 52%;
 }
-/* line 143, ../../styling/sass/partials/_leaderboard.scss */
+/* line 146, ../../styling/sass/partials/_leaderboard.scss */
 .accomplishments .table_head .accomp span {
   line-height: 24px;
   font-size: 10px;
@@ -343,7 +347,7 @@ body {
   margin: 0 0 0 20px;
 }
 
-/* line 152, ../../styling/sass/partials/_leaderboard.scss */
+/* line 155, ../../styling/sass/partials/_leaderboard.scss */
 .accomp.from figure {
   border: 1px solid #c9c9c9;
   padding: 3px;
@@ -368,24 +372,25 @@ body {
   border-radius: 40px;
 }
 
-/* line 157, ../../styling/sass/partials/_leaderboard.scss */
+/* line 160, ../../styling/sass/partials/_leaderboard.scss */
 .details span {
   color: #272727;
 }
-/* line 160, ../../styling/sass/partials/_leaderboard.scss */
+/* line 163, ../../styling/sass/partials/_leaderboard.scss */
 .details.from span {
   float: left;
   font-size: 12px;
   margin: 10px 0 0 0;
   font-weight: bold;
 }
-/* line 166, ../../styling/sass/partials/_leaderboard.scss */
+/* line 169, ../../styling/sass/partials/_leaderboard.scss */
 .details.message span {
   float: left;
+  width: 100%;
   font-size: 14px;
   margin: 8px 0 0 20px;
 }
-/* line 171, ../../styling/sass/partials/_leaderboard.scss */
+/* line 175, ../../styling/sass/partials/_leaderboard.scss */
 .details.points span {
   font-size: 36px;
   color: #5f5f5f;
@@ -394,13 +399,13 @@ body {
   margin: 0 0 0 20px;
 }
 
-/* line 180, ../../styling/sass/partials/_leaderboard.scss */
+/* line 184, ../../styling/sass/partials/_leaderboard.scss */
 .leave_comment {
   width: 100%;
   display: none;
   height: 80px;
 }
-/* line 184, ../../styling/sass/partials/_leaderboard.scss */
+/* line 188, ../../styling/sass/partials/_leaderboard.scss */
 .leave_comment .greatMessage {
   text-indent: 20px;
   float: left;
@@ -418,16 +423,16 @@ body {
   border-radius: 10px;
 }
 @media only screen and (min-width: 600px) {
-  /* line 184, ../../styling/sass/partials/_leaderboard.scss */
+  /* line 188, ../../styling/sass/partials/_leaderboard.scss */
   .leave_comment .greatMessage {
     width: 85%;
   }
 }
-/* line 199, ../../styling/sass/partials/_leaderboard.scss */
+/* line 203, ../../styling/sass/partials/_leaderboard.scss */
 .leave_comment .inc_div {
   line-height: 80px;
 }
-/* line 202, ../../styling/sass/partials/_leaderboard.scss */
+/* line 206, ../../styling/sass/partials/_leaderboard.scss */
 .leave_comment .inc {
   height: 70px;
   border: 1px solid lightgrey;
@@ -449,7 +454,7 @@ body {
   margin-top: 5px;
 }
 @media only screen and (min-width: 600px) {
-  /* line 202, ../../styling/sass/partials/_leaderboard.scss */
+  /* line 206, ../../styling/sass/partials/_leaderboard.scss */
   .leave_comment .inc {
     -webkit-border-top-right-radius: 10px;
     -webkit-border-bottom-right-radius: 10px;
@@ -461,7 +466,7 @@ body {
   }
 }
 
-/* line 221, ../../styling/sass/partials/_leaderboard.scss */
+/* line 225, ../../styling/sass/partials/_leaderboard.scss */
 .btn.give {
   height: 40px;
   padding: 20px;
@@ -478,7 +483,7 @@ body {
   background-image: linear-gradient(#ffffff 0%, #f5f5f5 50%);
 }
 @media only screen and (min-width: 600px) {
-  /* line 221, ../../styling/sass/partials/_leaderboard.scss */
+  /* line 225, ../../styling/sass/partials/_leaderboard.scss */
   .btn.give {
     -webkit-border-top-right-radius: 10px;
     -webkit-border-bottom-right-radius: 10px;
@@ -488,7 +493,7 @@ body {
     border-bottom-right-radius: 10px;
   }
 }
-/* line 230, ../../styling/sass/partials/_leaderboard.scss */
+/* line 234, ../../styling/sass/partials/_leaderboard.scss */
 .btn.give:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f5f5f5), color-stop(50%, #ffffff));
   background-image: -webkit-linear-gradient(#f5f5f5 0%, #ffffff 50%);
@@ -497,7 +502,7 @@ body {
   background-image: linear-gradient(#f5f5f5 0%, #ffffff 50%);
 }
 
-/* line 236, ../../styling/sass/partials/_leaderboard.scss */
+/* line 240, ../../styling/sass/partials/_leaderboard.scss */
 .player.selected .accomplishments {
   display: block;
 }
