@@ -162,20 +162,39 @@
 </template>
 
 <template name="messages">
-  <div class='overflowbox chat'>
-    <p>
-      ====RECENT GREATNESS====
-      <br />
+  <div class='recent_activity'>
+    <ul>
         {{#each messages}}
-            <strong>{{name}}</strong> Just Great Worked <strong>{{victim}}</strong>
-            <br />
-            "{{message}}"
-            <br />
-            {{formatted_time time}}
+        <li>
+            <div class="recent_figure">
+              <figure>
+              {{#if facebook_id}}
+                <img src='https://graph.facebook.com/{{facebook_id }}/picture' width="28" height="28" />
+                {{else}}
+                <img src="http://placehold.it/28x28" />
+              {{/if}}
+              </figure>
+              <span class="recent_name">{{name}}</span>
+            </div>
+            <div class="recent_action">
+              GW'D
+            </div>
+            <div class="recent_figure">
+              <figure>
+              {{#if facebook_id}}
+                <img src='https://graph.facebook.com/{{facebook_id }}/picture' width="28" height="28" />
+                {{else}}
+                <img src="http://placehold.it/28x28" />
+              {{/if}}
+              </figure>
+              <span class="recent_name">{{victim}}</span>
+            </div>
+            <div class="recent_message">
+              <span class="message_text">{{message}}</span>
+              <span>{{formatted_time time}}</span>
+            </div>
+        </li>
         {{/each}}
-      <br />
-      ====================
-    </p>
-    <p style="color:red">5 points given every hour</p>
+    </ul>
   </div>
 </template>

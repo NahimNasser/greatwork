@@ -9,16 +9,6 @@ body {
   margin: auto;
 }
 
-.chat { 
-  float: left;
-  display: none;
-  text-align: center;
-  @media only screen and (min-width: 600px) {
-    float: none;
-    display: block;
-  }
-}
-
 .player {
   position: absolute;
   overflow: hidden;
@@ -215,7 +205,6 @@ body {
       @include right-rounded(10px);
       float:left;
     }
-    @include border-radius(10px);
     width: 75px;
     text-align: center;
     font-size: 18px;
@@ -241,4 +230,69 @@ body {
 
 .player.selected .accomplishments {
   display: block;
+}
+
+.recent_activity {
+  width: 100%;
+  height: 100px;
+  overflow-y: scroll;
+  border: 1px solid lightgrey;
+  @include border-radius(10px);
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
+  li {
+    padding-top: 5px;
+    float: left;
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid lightgrey;
+  }
+  .recent_figure{
+    width: 20%;
+    float:left;
+  }
+  .recent_action{
+    float:left;
+    color: #C82506;
+    font-size: 35px;
+    padding-left: 10px;
+    font-weight: 600;
+  }
+  .recent_name{
+    width: 10%;
+    float: left;
+  }
+  .recent_message{
+    float:left;
+    width: 40%;
+    .message_text{
+      width: 100%;
+      height: 100%;
+      white-space: nowrap;
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #C82506;
+      font-weight: 600;
+    }
+  }
+  figure {
+    float: left;
+    @include round-border-figure(28px);
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    list-style-type: none;
+  }
+
+  @media only screen and (min-width: 600px) {
+    float: none;
+    display: block;
+  }
+
 }

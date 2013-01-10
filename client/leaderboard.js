@@ -22,7 +22,7 @@ if (Meteor.isClient) {
   Session.set('page_size', 3);
 
   Template.messages.messages = function() {
-    return Messages.find({}, {sort: {time: -1}}).fetch().slice(0,1);
+    return Messages.find({}, {sort: {time: -1}}).fetch();
   };
 
   Template.currentplayer.currentplayer = function(){
